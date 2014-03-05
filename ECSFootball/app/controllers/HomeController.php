@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 
 		//featuredFilm is called film so that the homepage can use the filmDetails partial
 		//return $this->buildPage('home', array('recentFilms' => $recentFilms, 'film' => $featuredFilm));
-		return $this->buildPage('home');
+		return $this->buildPage('home', array());
 	}
 
 }

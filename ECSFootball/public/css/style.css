@@ -1,0 +1,163 @@
+
+/*********************************
+ * SITE WIDE STYLES
+ *********************************/
+
+
+/**
+ * Main Layout
+ */
+
+body {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: url('/img/wallpaper.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.header-logo {
+	margin-bottom: 30px;
+}
+
+.white-background {
+	background: #fff;
+}
+
+.padded-content {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+}
+
+.footer {
+	padding: 20px 20px 10px 20px;
+	border-top: 1px solid #e5e5e5;
+}
+
+
+/**
+ * Film Images  
+ */
+
+.film-poster {
+	width: 250px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.film-thumb {
+	width: 180px;
+}
+
+.row-film {
+	margin-bottom: 15px;
+}
+
+
+/**
+ * Generic styles
+ */
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.five-px-gutter {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
+.center {
+	text-align: center;
+}
+
+
+/**
+ * Overrides
+ */
+
+.navbar {
+	margin-bottom: 0; 
+}
+
+.container {
+	padding: 0px;
+}
+
+@media (min-width: 768px) {
+	.container {
+	max-width: 730px;
+	}
+}
+
+/*********************************
+ * HOMEPAGE STYLES
+ *********************************/
+
+/**
+ * Featured Film
+ */
+
+.vert-divider {
+	border-left: 1px solid #e5e5e5;
+}
+
+
+/**
+ * Carousel
+ */
+
+.caption-box {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 150px;
+	padding: 0px 20px 20px 20px;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.caption-box a {
+	display: block;
+	margin: 20px;
+	color: #fff;
+}
+
+.crop {
+	width: 730px;
+	height: 500px;
+	overflow: hidden;
+}
+
+.crop img {
+	width: 730px;
+	margin-top: -200px;
+}
+
+
+/*********************************
+ * FILM STYLES
+ *********************************/
+
+/**
+ * Reviews and Review Form
+ */
+
+.review {
+	padding: 10px;
+	word-wrap: break-word;
+}
+
+.thumb-icon {
+	width: 16px; 
+	height: 16px;
+}
+
+

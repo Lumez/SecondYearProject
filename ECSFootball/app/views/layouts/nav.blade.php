@@ -12,18 +12,16 @@
 			<ul class="nav navbar-nav">
 				<li><a href="{{ action('HomeController@showHomePage') }}">Home</a></li>
 				<li class="dropdown">
-					<a href="{{ action('GenreController@showGenrePage')}}" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
+					<a href="" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						@if (isset($genres))
-							@foreach ($genres as $genre)
-								<li><a href="{{ action('GenreController@showGenrePage', $genre->id) }}">{{ $genre->name }}</a></li>
-							@endforeach
-						@endif
+						<li><a href="">blah</a></li>
+						<li><a href="">blah</a></li>
+						<li><a href="">blah</a></li>
 					</ul>
 				</li>
-				<li><a href="{{ action('FilmController@showFilmPage') }}">Film List</a></li>
+				<li><a href="">Film List</a></li>
 			</ul>
-			<form action="{{ action('FilmController@searchFilm') }}" method="post" class="navbar-form navbar-right" role="search">
+			<form action="" method="post" class="navbar-form navbar-right" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search Films" name="search">
 				</div>

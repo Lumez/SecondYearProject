@@ -48,7 +48,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'bdixon.co.uk',
 			'database'  => 'ecs_football',
 			'username'  => 'access',
 			'password'  => '1c]D2F_`^N',

@@ -13,7 +13,7 @@
 
 @endif
 
-@if (Session::get('success'))
+@if (Session::has('success'))
 
 <div class="alert alert-success">
 		<strong>Success!</strong> 

@@ -18,6 +18,8 @@
 		<div class="white-background">
 			@include('layouts.nav')
 
+			@include('partials.errorbox')
+
 			@yield('body')
 
 			@include('layouts.footer')

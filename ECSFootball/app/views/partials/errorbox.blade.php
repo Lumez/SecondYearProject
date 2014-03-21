@@ -12,3 +12,12 @@
 </div>
 
 @endif
+
+@if (Session::get('success'))
+
+<div class="alert alert-success">
+		<strong>Success!</strong> 
+		<p>{{ Session::get('success') }}</p>
+</div>
+
+@endif

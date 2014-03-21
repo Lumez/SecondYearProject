@@ -24,7 +24,7 @@ class SideController extends BaseController {
 			$subscriber->email = Input::get('email');
 			$subscriber->save();
 
-			return Redirect::back();
+			return Redirect::back()->with('success', 'You have been added to the mailing list.');
 		}else{
 			/*fail*/
 
@@ -32,6 +32,15 @@ class SideController extends BaseController {
 			return Redirect::back()->withErrors($validator->messages());
 
 		}
+	}
+
+
+	public function removeSubscriber(){
+
+
+
+
+
 	}
 
 }

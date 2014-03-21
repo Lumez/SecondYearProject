@@ -28,8 +28,10 @@ class Subscriber extends Eloquent {
 	 */
 	public static function validate($input) {
 
+		/* |exists:subscriber,email */
+
         $rules = array(
-                'email' => "Required|email|exists:subscriber,email",
+                'email' => 'Required|email|unique:subscriber,email',
                 
         );
 

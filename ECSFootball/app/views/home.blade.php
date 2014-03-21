@@ -17,7 +17,7 @@
 			<div class="article">
 				<h3>{{ $article->title }}</h3>
 				<p>{{ $article->description }}</p>
-				<p>{{ $article->date }}</p>
+				<p>{{ $article->display_date }}</p>
 			</div>
 			@endforeach
 

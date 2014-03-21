@@ -13,4 +13,6 @@
 
 Route::get('/', 'HomeController@showHomePage');
 
+Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
+
 Route::post('/subscribe', 'SideController@addSubscriber');

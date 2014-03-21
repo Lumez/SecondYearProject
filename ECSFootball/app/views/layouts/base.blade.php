@@ -3,6 +3,7 @@
 <head>
 	{{ HTML::style('lib/bootstrap/css/bootstrap.min.css') }}
 	{{ HTML::style('css/style.css') }}
+	{{ HTML::style('css/fixtures.style.css') }}
 
 	{{ HTML::script('https://code.jquery.com/jquery.js') }}
 	{{ HTML::script('lib/bootstrap/js/bootstrap.min.js') }}

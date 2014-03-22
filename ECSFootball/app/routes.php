@@ -13,10 +13,7 @@
 
 Route::get('/', 'HomeController@showHomePage');
 
-<<<<<<< HEAD
 Route::post('/subscribe', 'SubscribeController@addSubscriber');
-=======
+
 Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
 
-Route::post('/subscribe', 'SideController@addSubscriber');
->>>>>>> FETCH_HEAD

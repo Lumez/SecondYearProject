@@ -5,7 +5,7 @@
  *
  * @package HomeController
  */
-class SideController extends BaseController {
+class SubscribeController extends BaseController {
 
 	/**
 	 * Check if there is an existing email address in the database.

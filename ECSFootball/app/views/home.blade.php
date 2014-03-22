@@ -2,6 +2,12 @@
 
 @section('title', 'Home')
 
+@section('head')
+
+{{ HTML::style('css/home.style.css') }}
+
+@stop
+
 @section('body')
 
 <div class="padded-content">

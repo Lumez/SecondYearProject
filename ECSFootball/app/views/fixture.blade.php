@@ -2,6 +2,12 @@
 
 @section('title', 'Fixtures and Results')
 
+@section('head')
+
+{{ HTML::style('css/fixtures.style.css') }}
+
+@stop
+
 @section('body')
 
 <div class="padded-content">

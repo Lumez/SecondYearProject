@@ -25,8 +25,6 @@
 			</div>
 			@endforeach
 
-
-			<img src="/img/RCF.png" style="width: 300px;">
 		</div>
 		<div class="col-md-4 center vert-divider">
 			@include('partials.sidebar')

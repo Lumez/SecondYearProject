@@ -39,25 +39,6 @@ body {
 
 
 /**
- * Film Images  
- */
-
-.film-poster {
-	width: 250px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-
-.film-thumb {
-	width: 180px;
-}
-
-.row-film {
-	margin-bottom: 15px;
-}
-
-
-/**
  * Generic styles
  */
 
@@ -84,11 +65,56 @@ body {
  */
 
 .navbar {
-	margin-bottom: 0; 
+	margin-bottom: 0;
+	width: 940px;
+        margin-bottom: 0px;
+	margin-left: -20px;
+        padding: 0px;
+        color: #cccccc;
+	-moz-box-shadow: 0 0 10px black;
+	-webkit-box-shadow: 0 0 10px black;
+	box-shadow: 0 0 10px black;
+	margin-top: 15px;
+	position: relative;
+        height: 40px;
+        font-family: Arial;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	clear: both;
+        text-shadow: 1px 1px 1px black;
+        border-top: 1px solid rgba(0,0,0,0.3);
+	background-image: -moz-linear-gradient(rgb(207,11,11), rgb(167,6,6));     
+	background-image: -webkit-linear-gradient(rgb(207,11,11), rgb(167,6,6)); 
+	background-image: -o-linear-gradient(rgb(207,11,11), rgb(167,6,6));    
+	background-image: -ms-linear-gradient(rgb(207,11,11), rgb(167,6,6)); 
+	background-image: linear-gradient(rgb(207,11,11), rgb(167,6,6));
+}
+.nav a{
+	color: white !important;	
 }
 
 .container {
 	padding: 0px;
+}
+
+.arrowLeft2, .arrowLeft{
+	width: 0; height: 0;
+	line-height: 0;
+	border-left: 20px solid transparent;
+	border-top: 17px solid rgb(94, 4, 4);
+	top: 100%;
+	left: 0;
+	position: absolute;   
+}
+	
+.arrowRight2, .arrowRight {
+	width: 0; height: 0;
+	line-height: 0;
+	border-right: 20px solid transparent;
+	border-top: 17px solid rgb(94, 4, 4);
+	top: 100%;
+	right: 0;
+	position: absolute;
 }
 
 @media (min-width: 768px) {
@@ -96,68 +122,4 @@ body {
 	max-width: 900px;
 	}
 }
-
-/*********************************
- * HOMEPAGE STYLES
- *********************************/
-
-/**
- * Featured Film
- */
-
-.vert-divider {
-	border-left: 1px solid #e5e5e5;
-}
-
-
-/**
- * Carousel
- */
-
-.caption-box {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 150px;
-	padding: 0px 20px 20px 20px;
-	background: rgba(0, 0, 0, 0.8);
-}
-
-.caption-box a {
-	display: block;
-	margin: 20px;
-	color: #fff;
-}
-
-.crop {
-	width: 730px;
-	height: 500px;
-	overflow: hidden;
-}
-
-.crop img {
-	width: 730px;
-	margin-top: -200px;
-}
-
-
-/*********************************
- * FILM STYLES
- *********************************/
-
-/**
- * Reviews and Review Form
- */
-
-.review {
-	padding: 10px;
-	word-wrap: break-word;
-}
-
-.thumb-icon {
-	width: 16px; 
-	height: 16px;
-}
-
 

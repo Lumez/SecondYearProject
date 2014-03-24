@@ -43,13 +43,13 @@
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
+						<div class="modal-content">
+						  <div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="myModalLabel">
 							<div class="fixtureTitle">
 								{{ $fixture->date }}  : &nbsp;
-								@if ($fixture->is_home == 1)
+								@if ($fixture->is_home)
 									{{ $fixture->ecs_score }} |
 									ECSS vs
 									{{ $fixture->against_team }} |
@@ -62,16 +62,16 @@
 								@endif
 							</div>
 						</h4>
-					      </div>
-					      <div class="modal-body">
+						  </div>
+						  <div class="modal-body">
 						{{ $fixture->profile }}
 						<hr/>
-					      </div>
-					      <div class="modal-footer">
+						  </div>
+						  <div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-primary">Save changes</button>
-					      </div>
-					    </div>
+						  </div>
+						</div>
 					  </div>
 					</div>
 				</div>
@@ -79,6 +79,21 @@
 				</div>				
 			</div>
 			@endforeach
+
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				var disqus_shortname = 'bdixoncouk'; // required: replace example with your forum shortname
+
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disquss_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 			
 		</div>
 		<div class="col-md-4 center vert-divider">

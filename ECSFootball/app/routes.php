@@ -17,3 +17,4 @@ Route::post('/subscribe', 'SubscribeController@addSubscriber');
 
 Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
 
+Route::get('/team', 'TeamController@showTeamPage');

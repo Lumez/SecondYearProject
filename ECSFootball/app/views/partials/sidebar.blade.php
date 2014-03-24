@@ -6,4 +6,4 @@
 @include('partials.sidebarpartial.subscribe')
 
 <!-- weather -->
-@include('partials.sidebarpartial.subscribe')
+@include('partials.sidebarpartial.weather')

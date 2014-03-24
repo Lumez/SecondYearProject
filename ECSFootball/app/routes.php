@@ -13,6 +13,11 @@
 
 Route::get('/', 'HomeController@showHomePage');
 
+Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@showProfilePage'));
+
+Route::get('/login', 'LoginController@showLoginPage');
+Route::post('/login', 'LoginController@doLogin');
+
 Route::post('/subscribe', 'SubscribeController@addSubscriber');
 
 Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');

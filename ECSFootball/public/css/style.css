@@ -59,6 +59,19 @@ body {
 	text-align: center;
 }
 
+/**
+ * Nav Bar
+ */
+
+.nav-profile-img {
+	position: absolute;
+	margin-top: -5px;
+	margin-left: -40px;
+	width: 30px;
+	border: solid 1px white;
+	border-radius: 2px;
+}
+
 
 /**
  * Overrides

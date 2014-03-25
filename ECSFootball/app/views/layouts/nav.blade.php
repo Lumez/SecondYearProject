@@ -18,6 +18,13 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
+				@if ( Auth::check() )
+
+				<li><a href="{{ action('PlayerController@showProfilePage') }}"><img class="nav-profile-img" src="https://graph.facebook.com/{{ Auth::user()->facebook_URL}}/picture"/>{{{ Auth::user()->first_name }}}</a></li>
+				<li><a href="{{ action('LoginController@doLogout') }}">Logout</a></li>
+
+				@else
+
 				<li class="dropdown" id="menu1">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
 						Login
@@ -33,7 +40,10 @@
 						{{ Form::close() }}
 					</div>
 			   </li>
-			</ul>
+
+			   @endif
+			</ul>	
+
 			<script language="javascript">
 			    $('.dropdown-toggle').dropdown();
 			    $('.dropdown-menu').find('form').click(function (e) {

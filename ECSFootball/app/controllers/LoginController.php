@@ -54,4 +54,9 @@ class LoginController extends BaseController {
 
 		}
 	}
+
+	public function doLogout() {
+		Auth::logout();
+		return Redirect::action('HomeController@showHomePage')->with('success', 'You have successfully logged out.');
+	}
 }

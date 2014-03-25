@@ -17,6 +17,7 @@ Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@sho
 
 Route::get('/login', 'LoginController@showLoginPage');
 Route::post('/login', 'LoginController@doLogin');
+Route::get('/logout', 'LoginController@doLogout');
 
 Route::post('/subscribe', 'SubscribeController@addSubscriber');
 

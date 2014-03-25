@@ -21,6 +21,11 @@
 				@if ( Auth::check() )
 
 				<li><a href="{{ action('PlayerController@showProfilePage') }}"><img class="nav-profile-img" src="https://graph.facebook.com/{{ Auth::user()->facebook_URL}}/picture"/>{{{ Auth::user()->first_name }}}</a></li>
+
+				@if ( Auth::user()->is_admin )
+					<li><a href="">Accounts</a></li>
+				@endif
+
 				<li><a href="{{ action('LoginController@doLogout') }}">Logout</a></li>
 
 				@else

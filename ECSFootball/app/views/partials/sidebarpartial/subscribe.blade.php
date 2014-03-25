@@ -1,5 +1,5 @@
-
-<div style="border-bottom:solid 1px #BDC4D6; border-left:solid 1px #BDC4D6;"> 
+<br/>
+<div style="border:solid 1px #BDC4D6;"> 
 	
 	<br>
 

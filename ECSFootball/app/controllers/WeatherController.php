@@ -7,7 +7,7 @@
  */
 class WeatherController extends BaseController {
 
-	/**
+	/** !!!!!!!!!!!!!change this !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<--- change this
 	 * Check if there is an existing email address in the database.
 	 * Add subscriber into the databse if this is a new email address.
 	 *
@@ -21,6 +21,10 @@ class WeatherController extends BaseController {
 
 		return $data;
 
+
+	}
+
+	public function getLocationSearch(){
 
 	}
 

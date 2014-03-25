@@ -1,8 +1,10 @@
+<br/>
 
-<div style="border-bottom:solid 1px #BDC4D6; border-left:solid 1px #BDC4D6;"> 
+<div style="border:solid 1px #BDC4D6;"> 
+
 	
 	<h4>
-		<b>Check the current weather out!</b>
+		<b>Weather forecast</b>
 	</h4>
 
 

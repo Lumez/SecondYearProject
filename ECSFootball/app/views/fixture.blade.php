@@ -36,17 +36,17 @@
 				</div>
 				<div class="col-md-3">
 					<!-- Button trigger modal -->
-					<button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
+					<button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#fixtureModal{{ $fixture->fixture_id }}">
 					  View Report
 					</button>
 					
 					<!-- Modal -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal fade" id="fixtureModal{{ $fixture->fixture_id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel{{ $fixture->fixture_id }}" aria-hidden="true">
 					  <div class="modal-dialog">
 						<div class="modal-content">
 						  <div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">
+						<h4 class="modal-title" id="modalLabel{{ $fixture->fixture_id }}">
 							<div class="fixtureTitle">
 								{{ $fixture->date }}  : &nbsp;
 								@if ($fixture->is_home)
@@ -64,7 +64,7 @@
 						</h4>
 						  </div>
 						  <div class="modal-body">
-						{{ $fixture->profile }}
+						{{ $fixture->profile }}						
 						<hr/>
 						  </div>
 						  <div class="modal-footer">
@@ -80,6 +80,7 @@
 			</div>
 			@endforeach
 
+			<hr />
 			<div id="disqus_thread"></div>
 			<script type="text/javascript">
 				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -94,6 +95,7 @@
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 			
 		</div>
 		<div class="col-md-4 center vert-divider">

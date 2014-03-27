@@ -7,14 +7,27 @@
 		<b>Weather forecast</b>
 	</h4>
 
+	@foreach($weather_array as $day)
+
+		<?php 
+
+			$date = strtotime($day->date);
+			$myDate = date ('d-m-y', $date);
+
+		?>
+		
+
+		<p>  {{ $myDate }} --> {{ $day->weatherDesc[0]->value }} </p>
 
 
-<br/>
+
+
+	@endforeach
 
 	Powered by <a href="http://www.worldweatheronline.com/" 
-title="Free local weather content provider" 
-target="_blank">World Weather Online</a>
+	title="Free local weather content provider" 
+	target="_blank">World Weather Online</a>
 
-<br/>
+	<br/>
 
 </div>

@@ -24,8 +24,7 @@ class LoginController extends BaseController {
 		// if the validator fails, redirect back to the form
 		if ($validator->fails()) {
 			return Redirect::action('LoginController@showLoginPage')
-				->withErrors($validator->messages()) // send back all errors to the login form
-				->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+				->withErrors($validator->messages()); // send back all errors to the login form
 		} else {
 
 			// create our user data for the authentication
@@ -47,8 +46,7 @@ class LoginController extends BaseController {
 
 				// validation not successful, send back to form	
 				return Redirect::action('LoginController@showLoginPage')
-					->withErrors(array('Invalid Login! Pleasse check you have entered your email and password correctly!'))
-					->withInput(Input::except('password'));
+					->withErrors(array('Invalid Login! Pleasse check you have entered your email and password correctly!'));
 
 			}
 

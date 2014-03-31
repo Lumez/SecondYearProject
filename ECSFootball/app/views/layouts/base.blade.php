@@ -9,7 +9,8 @@
 	{{ HTML::script('js/holder.js') }}
 
 	@yield('head')
-
+	
+	<link rel="shortcut icon" href="/img/favicon.ico"/>
 	<meta charset="UTF-8">
 	<title>@yield('title') | ECSS Football</title>
 </head>

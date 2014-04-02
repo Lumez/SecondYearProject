@@ -17,10 +17,22 @@ class FixturesAndResultsController extends BaseController {
 						->take(5)
 						->get();
 
-
 		//featuredFilm is called film so that the homepage can use the filmDetails partial
 		//return $this->buildPage('home', array('recentFilms' => $recentFilms, 'film' => $featuredFilm));
-		return View::make('fixture', array('fixtures' => $latestFixtures));
+		if ( Auth::check() && Auth::user()->is_admin ){
+			return View::make('fixtureAdmin', array('fixtures' => $latestFixtures));
+		}else {
+			return View::make('fixture', array('fixtures' => $latestFixtures));
+		}		
+		
 	}
-
+	public static function deleteFixture(){
+		echo 'dude';
+		$fixID = Input::get('id');
+		DB::table('fixture')->where('fixture_id', '=', $fixID)->delete();
+		//Fixture::delete("delete from fixture where fixture_id={$fixID}");
+		//$fixture = Game::find($fixID);
+		//$fixture->delete();
+		return Redirect::action('FixturesAndResultsController@showFixturePage')->with('success', 'You have successfully deleted the fixture!');
+	}
 }

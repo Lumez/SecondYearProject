@@ -18,10 +18,10 @@
 			
 			@foreach ($fixtures as $fixture)
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					{{ $fixture->date }}
 				</div>
-				<div class="col-md-5 fixture">
+				<div class="col-md-4 fixture">
 					@if ($fixture->is_home == 1)
 					
 						<div class="left">{{ $fixture->ecs_score }} |</div> 
@@ -75,8 +75,11 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					
-					<!--<a href="{{ action('FixturesAndResultsController@deleteFixture($fixture->fixture_id)') }}"><img id="deleteButton" src="/img/delete.png" width="20px"/></a>-->
+					<input type="button" title="Edit" value="Edit">&nbsp;
+					{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture')) }}
+						{{ Form::hidden('id', '$fixture->fixture_id') }}
+						{{ Form::submit('Delete') }}
+					{{ Form::close() }}
 				</div>				
 			</div>
 			@endforeach
@@ -96,7 +99,6 @@
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 			
 		</div>
 		<div class="col-md-4 center vert-divider">

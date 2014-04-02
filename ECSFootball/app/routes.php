@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@showHomePage');
 
 Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@showProfilePage'));
 
+Route::get('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
+
 Route::get('/login', 'LoginController@showLoginPage');
 Route::post('/login', 'LoginController@doLogin');
 Route::get('/logout', 'LoginController@doLogout');

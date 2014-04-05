@@ -21,6 +21,9 @@ Route::get('/team', 'TeamController@showTeamPage');
 Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
 Route::get('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
 
+/* League Table */
+Route::get('/league', 'LeagueController@showLeaguePage');
+
 /* Profile */
 Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@showProfilePage'));
 

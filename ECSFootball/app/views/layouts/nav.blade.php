@@ -12,7 +12,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="{{ action('HomeController@showHomePage') }}">Latest News</a></li>
 				<li><a href="{{ action('HomeController@showHomePage') }}">Team</a></li>
-				<li><a href="{{ action('HomeController@showHomePage') }}">Fixtures &amp; Results</a></li>
+				<li><a href="{{ action('FixturesAndResultsController@showFixturePage') }}">Fixtures &amp; Results</a></li>
 				<li><a href="{{ action('HomeController@showHomePage') }}">League Table</a></li>
 				<li><a href="{{ action('HomeController@showHomePage') }}">Contact Us</a></li>
 			</ul>

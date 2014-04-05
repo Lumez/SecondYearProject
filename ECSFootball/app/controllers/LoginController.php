@@ -5,7 +5,7 @@
  *
  * @package HomeController
  */
-class HomeController extends BaseController {
+class LoginController extends BaseController {
 
 	public function doLogin() {
 		// validate the info, create rules for the inputs

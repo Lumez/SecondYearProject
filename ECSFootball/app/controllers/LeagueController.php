@@ -8,19 +8,33 @@
 class LeagueController extends BaseController {
 
 	/**
-	 * Returns the built home page view
+	 * Returns the built league table view. Gets the league table and removes the broken links.
 	 *
 	 * @return View the view to be displayed
 	 */
 	public function showLeaguePage() {
-		$latestArticles = Article::orderBy('display_date', 'desc')
-						->take(5)
-						->get();
 
+		//Create new dom doc and load the league table page
+		$dom = new DOMDocument();
+		@$dom->loadHTMLfile('http://soton.imsports.co.uk/league/leaguetable_ajax.php');
 
-		//featuredFilm is called film so that the homepage can use the filmDetails partial
-		//return $this->buildPage('home', array('recentFilms' => $recentFilms, 'film' => $featuredFilm));
-		return View::make('league', array('articles' => $latestArticles));
+		//Get all the hyperlinks to be removed
+		$links = $dom->getElementsByTagName('a');
+
+		//Loop over all the links and replace them with 'p' tags with the same text
+		$i = $links->length - 1;
+		while ($i > -1) {
+			$link = $links->item($i);
+
+			$text = $dom->createElement('p', $link->nodeValue);
+			$link->parentNode->replaceChild($text, $link); 
+			$i--;
+		}
+
+		//Save an updated copy of the page
+		$leagueTable = $dom->saveHTML($dom);
+
+		return View::make('league', array('leagueTable' => $leagueTable));
 	}
 
 }

@@ -4,7 +4,7 @@
 
 @section('head')
 
-{{ HTML::style('css/home.style.css') }}
+{{ HTML::style('css/league.style.css') }}
 
 @stop
 

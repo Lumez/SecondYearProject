@@ -13,4 +13,4 @@
 
 Route::get('/', 'HomeController@showHomePage');
 
-Route::post('/subscribe', 'SideController@addSubscriber');
+Route::post('/subscribe', 'SubscribeController@addSubscriber');

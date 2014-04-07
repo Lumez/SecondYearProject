@@ -4,7 +4,7 @@
 
 @section('head')
 
-{{ HTML::style('css/home.style.css') }}
+{{ HTML::style('css/login.style.css') }}
 
 @stop
 
@@ -13,13 +13,13 @@
 <div class="padded-content">
 	<div class="row">
 		<div class="col-md-8 center">
-			<h3>Login</h3>
-			<p>Here at Red Carpet Films we are dedicated to providing the best movies at exceptional prices. With thousands of titles to choose from, you will never be stuck for a movie to watch.</p>
-			<p>Customers experience a service that is second to none, with tracked next day delivery and no late fees, it's no wonder that we were voted top DVD rental provider in the UK for the past 10 years.</p>
-			<strong>Red Carpet Films - DVD heaven really is a place on Earth</strong>
-
-
-			<img src="/img/ecss.png" style="width: 300px;">
+			<h3>ECSS Player Login</h3>
+			
+			{{ Form::open(array('action' => 'LoginController@doLogin', 'class' => 'form-signin')) }}
+				{{ Form::email('email', '', array('placeholder' => 'Email', 'class' => 'form-control')) }}
+				{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
+				{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
+			{{ Form::close() }}
 		</div>
 		<div class="col-md-4 center vert-divider">
 			@include('partials.sidebar')

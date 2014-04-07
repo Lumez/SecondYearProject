@@ -37,6 +37,54 @@ body {
 	border-top: 1px solid #e5e5e5;
 }
 
+/**
+ * Nav Bar
+ */
+
+.nav-profile-img {
+	position: absolute;
+	margin-top: -5px;
+	margin-left: -40px;
+	width: 30px;
+	border: solid 1px white;
+	border-radius: 2px;
+}
+
+.nav-login {
+  max-width: 330px;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: right;
+}
+.nav-login .nav-login-heading,
+.nav-login .checkbox {
+  margin-bottom: 10px;
+}
+.nav-login .checkbox {
+  font-weight: normal;
+}
+.nav-login .nav-login-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px;
+  font-size: 12px;
+}
+.nav-login .form-control:focus {
+  z-index: 2;
+}
+.nav-login input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.nav-login input[type="password"] {
+  margin-bottom: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 
 /**
  * Generic styles
@@ -57,19 +105,6 @@ body {
 
 .center {
 	text-align: center;
-}
-
-/**
- * Nav Bar
- */
-
-.nav-profile-img {
-	position: absolute;
-	margin-top: -5px;
-	margin-left: -40px;
-	width: 30px;
-	border: solid 1px white;
-	border-radius: 2px;
 }
 
 

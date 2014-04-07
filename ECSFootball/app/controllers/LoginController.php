@@ -46,7 +46,7 @@ class LoginController extends BaseController {
 
 				// validation not successful, send back to form	
 				return Redirect::action('LoginController@showLoginPage')
-					->withErrors(array('Invalid Login! Pleasse check you have entered your email and password correctly!'));
+					->withErrors(array('<strong>Invalid Login</strong> - Please check you have entered your email and password correctly!'));
 
 			}
 

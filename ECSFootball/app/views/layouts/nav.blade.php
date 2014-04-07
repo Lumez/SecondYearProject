@@ -36,12 +36,10 @@
 						<b class="caret"></b>
 					</a>
 					<div class="dropdown-menu">
-						{{ Form::open(array('action' => 'LoginController@doLogin')) }}
-							<fieldset class='textbox' style="padding:10px">
-								{{ Form::text('email', Input::old('email'), array('placeholder' => 'Email', 'style' => 'margin-top: 8px')) }}
-								{{ Form::password('password', array('placeholder' => 'Password', 'style' => 'margin-top: 8px')) }}
-								{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
-							</fieldset>
+						{{ Form::open(array('action' => 'LoginController@doLogin', 'class' => 'nav-login')) }}
+							{{ Form::email('email', '', array('placeholder' => 'Email', 'class' => 'form-control')) }}
+							{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
+							{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
 						{{ Form::close() }}
 					</div>
 			   </li>

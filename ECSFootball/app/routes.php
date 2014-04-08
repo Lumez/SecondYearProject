@@ -35,6 +35,9 @@ Route::get('/logout', 'LoginController@doLogout');
 /* Email Subscribe */
 Route::post('/subscribe', 'SubscribeController@addSubscriber');
 
+/* Contact Us */
+Route::get('/contact', 'ContactController@showContactPage');
+
 
 
 

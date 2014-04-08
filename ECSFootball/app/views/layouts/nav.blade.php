@@ -14,7 +14,7 @@
 				<li><a href="{{ action('TeamController@showTeamPage') }}">Team</a></li>
 				<li><a href="{{ action('FixturesAndResultsController@showFixturePage') }}">Fixtures &amp; Results</a></li>
 				<li><a href="{{ action('LeagueController@showLeaguePage') }}">League Table</a></li>
-				<li><a href="{{ action('HomeController@showHomePage') }}">Contact Us</a></li>
+				<li><a href="{{ action('ContactController@showContactPage') }}">Contact Us</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

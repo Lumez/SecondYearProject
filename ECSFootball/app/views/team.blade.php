@@ -20,13 +20,13 @@
 			
 			@foreach ($players as $player)
 			<hr />
-			<div class="article">
+			<div class="row">
+			<img class="img-thumbnail pull-left"  src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture?type=large'/>
 				<h3>{{ $player->first_name }} {{ $player->last_name }}</h3>
-				<img src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture?type=large'
-				<p>About Me: {{ $player->about_me }}</p>
+				<br>
+				<p>{{ $player->about_me }}</p>
 			</div>
 			@endforeach
-			
 		</div>
 		<div class="col-md-4 center vert-divider">
 			@include('partials.sidebar')

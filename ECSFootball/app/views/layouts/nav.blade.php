@@ -42,7 +42,7 @@
 							{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
 						{{ Form::close() }}
 					</div>
-			   </li>
+				</li>
 
 			   @endif
 			</ul>	

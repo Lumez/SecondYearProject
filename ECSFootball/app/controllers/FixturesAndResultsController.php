@@ -26,6 +26,7 @@ class FixturesAndResultsController extends BaseController {
 		}		
 		
 	}
+	
 	public static function deleteFixture(){
 		echo 'dude';
 		$fixID = Input::get('id');
@@ -34,5 +35,34 @@ class FixturesAndResultsController extends BaseController {
 		//$fixture = Game::find($fixID);
 		//$fixture->delete();
 		return Redirect::action('FixturesAndResultsController@showFixturePage')->with('success', 'You have successfully deleted the fixture!');
+	}
+	
+	public function addFixture(){
+			/* model */
+		$validator = Fixture::validate(Input::all());
+
+				/* the validator have a function call passes()*/
+		if($validator->passes()){
+			
+			$date_old = Input::get('date');
+			$date_new = date("Y-m-d", strtotime($date_old));
+
+			$fixture = new Fixture;
+			$fixture->against_team = Input::get('against_team');
+			$fixture->date = $date_new;
+			$fixture->ecs_score = Input::get('ecs_score');
+			$fixture->against_score = Input::get('against_score');
+			$fixture->profile = Input::get('profile');
+			$fixture->is_home = Input::get('is_home');
+			$fixture->save();
+
+			return Redirect::back()->with('success', 'You have a new fixture to the database');
+		}else{
+			/*fail*/
+
+			Input::flash();
+			return Redirect::back()->withErrors($validator->messages());
+
+		}
 	}
 }

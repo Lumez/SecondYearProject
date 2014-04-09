@@ -76,7 +76,7 @@
 				</div>
 				<div class="col-md-3">
 					
-					<!--<a href="{{ action('FixturesAndResultsController@deleteFixture($fixture->fixture_id)') }}"><img id="deleteButton" src="/img/delete.png" width="20px"/></a>-->
+					<!--<a href="{{ action('FixturesAndResultsController@deleteFixture') }}"><img id="deleteButton" src="/img/delete.png" width="20px"/></a>-->
 				</div>				
 			</div>
 			@endforeach

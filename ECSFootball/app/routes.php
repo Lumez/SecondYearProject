@@ -20,6 +20,7 @@ Route::get('/team', 'TeamController@showTeamPage');
 /* Fixtures */
 Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
 Route::get('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
+Route::post('/addFixture', 'FixturesAndResultsController@addFixture');
 
 /* League Table */
 Route::get('/league', 'LeagueController@showLeaguePage');

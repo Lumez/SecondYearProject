@@ -83,8 +83,34 @@
 				</div>				
 			</div>
 			@endforeach
-
-			<hr />
+			<hr/>
+				<div class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#add">
+						<button>Add Fixture</button>
+					</a>
+					<div class="dropdown-menu">
+						
+						{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture')) }}
+							<table class="addFixture">
+								<tr><td>Against Team:</td><td> {{ Form::text('against_team', '') }} </td></tr>
+								
+								<tr><td>Date of Match:</td><td> {{ Form::text('date', 'yyyy-mm-dd') }} </td></tr>
+								
+								<tr><td>ECSS' Score:</td><td> {{ Form::text('ecs_score', '0') }} </td></tr>
+								
+								<tr><td>Against Team's Score:</td><td> {{ Form::text('against_score', '0') }} </td></tr>
+						
+								<tr><td>Match Profile:</td><td> {{ Form::textarea('profile', 'Enter your comments here...') }} </td></tr>
+								
+								<tr><td>Home Match? *:</td><td> {{ Form::checkbox('is_home', '1', true) }} (* Tick the box if 'Yes')</td></tr>
+							
+								<tr><td></td><td>{{ Form::submit('Add Fixture') }}</td></tr>
+							</table>
+						{{ Form::close() }}
+						
+					</div>
+				</div>
+			<hr/>
 			<div id="disqus_thread"></div>
 			<script type="text/javascript">
 				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

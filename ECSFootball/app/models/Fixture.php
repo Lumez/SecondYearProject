@@ -28,9 +28,12 @@ class Fixture extends Eloquent {
 	 */
 	public static function validate($input) {
             $rules = array(
-                    'reviewer' => 'Required|Min:3|Max:30|AlphaNum',
-                    'comment'     => 'Required|Max:200',
-                    'liked'       => 'Required|Integer|Size:1'
+                    'against_team'  => 'Required|Min:3|Max:30|AlphaNum',
+                    'date'          => 'Required|date',
+                    'ecs_score'     => 'Required|Max:3',
+                    'against_score' => 'Required|Max:3',
+                    'profile'       => 'Max:200',
+                    'is_home'       => 'Integer|Size:1'
             );
 
         return Validator::make($input, $rules);

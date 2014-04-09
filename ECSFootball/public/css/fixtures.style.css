@@ -23,3 +23,21 @@
     #deleteButton:hover{
         cursor: pointer;
     }
+    
+    .addFixture{
+        padding: 10px;
+        margin: 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+    
+    .addFixture td{
+        vertical-align: top;
+        margin: 5px;
+        padding: 5px;
+    }
+    textarea{
+        resize: none;
+    }
+    
+    

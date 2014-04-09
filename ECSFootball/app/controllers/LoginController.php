@@ -27,7 +27,7 @@ class LoginController extends BaseController {
 				->withErrors($validator->messages()); // send back all errors to the login form
 		} else {
 
-			// create our user data for the authentication
+			// create user data for the authentication
 			$userdata = array(
 				'email' 	=> Input::get('email'),
 				'password' 	=> Input::get('password')
@@ -37,9 +37,7 @@ class LoginController extends BaseController {
 			if (Auth::attempt($userdata)) {
 
 				// validation successful!
-				// redirect them to the secure section or whatever
-				// return Redirect::to('secure');
-				// for now we'll just echo success (even though echoing in a controller is bad)
+				// redirect them to their profile page
 				return Redirect::action('PlayerController@showProfilePage');
 
 			} else {	 	

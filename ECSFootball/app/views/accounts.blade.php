@@ -14,10 +14,88 @@
 	<div class="row">
 		<div class="col-md-8 center">
 			<h3>Accounts Page</h3>
-			<p>Here at Red Carpet Films we are dedicated to providing the best movies at exceptional prices. With thousands of titles to choose from, you will never be stuck for a movie to watch.</p>
-			<p>Customers experience a service that is second to none, with tracked next day delivery and no late fees, it's no wonder that we were voted top DVD rental provider in the UK for the past 10 years.</p>
-			<strong>Red Carpet Films - DVD heaven really is a place on Earth</strong>
 
+			<table class="table table-condensed">
+				<tr>
+					<th>ID</th>
+					<th></th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+				</tr>
+				@foreach ($players as $player)
+				<tr>
+					<td>{{ $player->id }}</td>
+					<td><img src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture'/></td>
+					<td>{{ $player->first_name }}</td>
+					<td>{{ $player->last_name }}</td>
+					<td>{{ $player->email }}</td>
+				</tr>
+				@endforeach
+			</table>
+			<hr />
+			
+			<div class="right">
+				<button class="btn btn-success" data-toggle="modal" data-target="#playerModal">&plus; Add Player</button>
+			</div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="newPlayerModal" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="newPlayerModal">Add New Player</h4>
+						</div>
+						<div class="modal-body">
+			       			{{ Form::open(array('action' => 'PlayerController@addNewPlayer', 'class' => 'form-horizontal')) }}
+			       			<div class="form-group">
+			       				{{ Form::label('first_name', 'First Name', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('first_name', '', array('placeholder' => 'First Name', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('last_name', 'Last Name', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('last_name', '', array('placeholder' => 'Last Name', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('email', 'Email', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('email', '', array('placeholder' => 'Email Address', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('password', 'Password', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('password', '', array('placeholder' => 'Password', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('facebook_URL', 'Facebook Username', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('facebook_URL', '', array('placeholder' => 'Facebook Username', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('is_admin', 'Admin', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+			       					<div class="checkbox">
+										{{ Form::checkbox('is_admin', '1') }}
+									</div>
+								</div>
+							</div>									
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							{{ Form::submit('Save', array('class' => 'btn btn-success')) }}
+							{{ Form::close() }}
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-4 center vert-divider">
 			@include('partials.sidebar')

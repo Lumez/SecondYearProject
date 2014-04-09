@@ -5,6 +5,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Player extends Eloquent implements UserInterface, RemindableInterface {
 
+	// Don't use timestamp columns
+	public $timestamps = false;
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -47,6 +50,28 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	/**
+	 * Validates the input against the rules for the model
+	 * and returns the resulting validator object
+	 *
+	 * @param array the array of inputs
+	 *
+	 * @return Validator the resulting Validator
+	 */
+	public static function validate($input) {
+
+        $rules = array(
+                'first_name' => 'Required|Max:50|AlphaNum',
+                'last_name'  => 'Required|Max:50|AlphaNum',
+                'email'      => 'Required|Max:255|Email',
+                'password'   => 'Required|Min:3',
+                'facebook'   => 'Max:255',
+                'is_admin'   => 'Integer|Size:1'
+        );
+
+        return Validator::make($input, $rules);
 	}
 
 }

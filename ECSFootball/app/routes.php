@@ -30,11 +30,12 @@ Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@sho
 
 /* Accounts */
 Route::get('/accounts', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));
+Route::post('/accounts', array('before' => 'auth|admin', 'uses' => 'PlayerController@addNewPlayer'));
 Route::filter('admin', function()
 {
     if (!Auth::user()->is_admin)
     {
-        return Redirect::to('home');
+        return Redirect::to('/');
     }
 });
 

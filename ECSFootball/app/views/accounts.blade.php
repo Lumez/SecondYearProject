@@ -13,9 +13,9 @@
 <div class="padded-content">
 	<div class="row">
 		<div class="col-md-8 center">
-			<h3>Accounts Page</h3>
+			<h1>Accounts</h1>
 
-			<table class="table table-condensed">
+			<table class="table table-hover table-condensed">
 				<tr>
 					<th>ID</th>
 					<th></th>

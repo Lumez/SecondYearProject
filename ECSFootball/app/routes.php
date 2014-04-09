@@ -27,6 +27,16 @@ Route::get('/league', 'LeagueController@showLeaguePage');
 /* Profile */
 Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@showProfilePage'));
 
+/* Accounts */
+Route::get('/accounts', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));
+Route::filter('admin', function()
+{
+    if (!Auth::user()->is_admin)
+    {
+        return Redirect::to('home');
+    }
+});
+
 /* Login */
 Route::get('/login', 'LoginController@showLoginPage');
 Route::post('/login', 'LoginController@doLogin');

@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Controller for the home page. Displays the home page.
+ * Controller for all functions relating to the players. Displays the profile and accounts pages, and provides
+ * functions for adding, updating and deleting accounts.
  *
- * @package HomeController
+ * @package PlayerController
  */
 class PlayerController extends BaseController {
 
@@ -17,9 +18,14 @@ class PlayerController extends BaseController {
 						->take(5)
 						->get();
 
-		//featuredFilm is called film so that the homepage can use the filmDetails partial
-		//return $this->buildPage('home', array('recentFilms' => $recentFilms, 'film' => $featuredFilm));
 		return View::make('profile', array('articles' => $latestArticles));
 	}
 
+	public function showAccountsPage() {
+		$latestArticles = Article::orderBy('display_date', 'desc')
+						->take(5)
+						->get();
+
+		return View::make('accounts', array('articles' => $latestArticles));
+	}
 }

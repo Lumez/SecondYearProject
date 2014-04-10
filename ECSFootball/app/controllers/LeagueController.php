@@ -31,6 +31,19 @@ class LeagueController extends BaseController {
 			$i--;
 		}
 
+		//Get all the headings to be replaced
+		$headings = $dom->getElementsByTagName('h2');
+
+		//Loop over all the headings and replace them with 'h3' tags with the same text
+		$i = $headings->length - 1;
+		while ($i > -1) {
+			$heading = $headings->item($i);
+
+			$text = $dom->createElement('h3', $heading->nodeValue);
+			$heading->parentNode->replaceChild($text, $heading); 
+			$i--;
+		}
+
 		//Save an updated copy of the page
 		$leagueTable = $dom->saveHTML($dom);
 

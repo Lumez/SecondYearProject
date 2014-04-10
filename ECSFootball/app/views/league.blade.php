@@ -13,7 +13,7 @@
 <div class="padded-content">
 	<div class="row">
 		<div class="col-md-8">
-			<h3 class="center">League Table</h3>
+			<h1 class="center">League Table</h1>
 
 			{{ $leagueTable }}
 

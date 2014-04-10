@@ -37,6 +37,12 @@ class FixturesAndResultsController extends BaseController {
 		return Redirect::action('FixturesAndResultsController@showFixturePage')->with('success', 'You have successfully deleted the fixture!');
 	}
 	
+	public function delete_destroy(){
+		
+		Fixture::find(Input::get('fixture_id'))->delete();
+		return Redirect::back()->with('success', 'You have deleted a fixture from the database');
+	}
+	
 	public function addFixture(){
 			/* model */
 		$validator = Fixture::validate(Input::all());

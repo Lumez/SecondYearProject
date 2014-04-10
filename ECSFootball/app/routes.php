@@ -19,8 +19,9 @@ Route::get('/team', 'TeamController@showTeamPage');
 
 /* Fixtures */
 Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
-Route::get('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
+Route::post('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
 Route::post('/addFixture', 'FixturesAndResultsController@addFixture');
+Route::delete('fixtures/delete', array('uses'=>'FixturesAndResultsController@delete_destroy'));
 
 /* League Table */
 Route::get('/league', 'LeagueController@showLeaguePage');

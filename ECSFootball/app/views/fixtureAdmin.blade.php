@@ -31,7 +31,7 @@
 			
 			@foreach ($fixtures as $fixture)
 	
-						<tr onclick="location.href='{{ action('FixturesAndResultsController@showFixturePage', $fixture->fixture_id) }}'" style="cursor: pointer;">					
+						<tr onclick="location.href='{{ action('FixturesAndResultsController@showFixturesPage', $fixture->fixture_id) }}'" style="cursor: pointer;">					
 							@if ($fixture->is_home == 1)
 								<td>{{ $fixture->date }}</td>
 								<td>{{ $fixture->ecs_score }}</td>

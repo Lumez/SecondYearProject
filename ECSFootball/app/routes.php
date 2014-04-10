@@ -22,6 +22,8 @@ Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
 Route::post('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
 Route::post('/addFixture', 'FixturesAndResultsController@addFixture');
 Route::delete('fixtures/delete', array('uses'=>'FixturesAndResultsController@delete_destroy'));
+Route::get('/fixture/{fixtureId?}', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@showFixturesPage'));
+Route::post('/dude', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@updateFixture'));
 
 /* League Table */
 Route::get('/league', 'LeagueController@showLeaguePage');

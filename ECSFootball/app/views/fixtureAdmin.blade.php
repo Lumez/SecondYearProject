@@ -16,78 +16,94 @@
 			<h3>Fixture and Results</h3>
 			
 			
-			@foreach ($fixtures as $fixture)
-			<div class="row">
-				<div class="col-md-2">
-					{{ $fixture->date }}
-				</div>
-				<div class="col-md-4 fixture">
-					@if ($fixture->is_home == 1)
-					
-						<div class="left">{{ $fixture->ecs_score }} |</div> 
-						<div class="center">ECSS vs {{ $fixture->against_team }}</div> 
-						<div class="right">| {{ $fixture->against_score }}</div>
-					@else 
-						<div class="left">{{ $fixture->against_score }} |</div>
-						<div class="center">{{ $fixture->against_team }} vs ECSS </div>
-						<div class="right">| {{ $fixture->ecs_score }}</div>
-					@endif
-				</div>
-				<div class="col-md-3">
-					<!-- Button trigger modal -->
-					<button class="btn btn-default" data-toggle="modal" data-target="#fixtureModal{{ $fixture->fixture_id }}">
-					  View Report
-					</button>
-					
-					<!-- Modal -->
-					<div class="modal fade" id="fixtureModal{{ $fixture->fixture_id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel{{ $fixture->fixture_id }}" aria-hidden="true">
-					  <div class="modal-dialog">
-						<div class="modal-content">
-						  <div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="modalLabel{{ $fixture->fixture_id }}">
-							<div class="fixtureTitle">
-								{{ $fixture->date }}  : &nbsp;
-								@if ($fixture->is_home)
-									{{ $fixture->ecs_score }} |
-									ECSS vs
-									{{ $fixture->against_team }} |
-									{{ $fixture->against_score }}
-								@else 
-									{{ $fixture->against_score }} |
-									{{ $fixture->against_team }}
-									vs ECSS |
-									{{ $fixture->ecs_score }}
-								@endif
-							</div>
-						</h4>
-						  </div>
-						  <div class="modal-body">
-						{{ $fixture->profile }}						
-						<hr/>
-						  </div>
-						  <div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-						  </div>
-						</div>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture')) }}
-						{{ Form::hidden('id', '$fixture->fixture_id') }}
-						{{ Form::submit('Edit', array('class' => 'btn btn-primary')) }}
-					{{ Form::close() }}
-					
-					{{ Form::open(array('action' => 'FixturesAndResultsController@delete_destroy', 'method'=>'DELETE'), array('style'=>'display: inline;')) }}
-						{{ Form::hidden('id', $fixture->fixture_id) }}
-						{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-					{{ Form::close() }}
-				</div>				
-			</div>
-			@endforeach
+			<table class="table table-hover table-condensed fixtureTable">
+				<tr>
+					<th>Date</th>
+					<th>Score</th>
+					<th>Home Team</th>
+					<th></th>
+					<th>Quest Team</th>
+					<th>Score</th>
+					<th>Match Profile</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
 			
+			@foreach ($fixtures as $fixture)
+	
+						<tr onclick="location.href='{{ action('FixturesAndResultsController@showFixturePage', $fixture->fixture_id) }}'" style="cursor: pointer;">					
+							@if ($fixture->is_home == 1)
+								<td>{{ $fixture->date }}</td>
+								<td>{{ $fixture->ecs_score }}</td>
+								<td>ECSS</td>
+								<td>vs</td>
+								<td>{{ $fixture->against_team }}</td>
+								<td>{{ $fixture->against_score }}</td>
+							@else
+								<td>{{ $fixture->date }}</td>
+								<td>{{ $fixture->against_score }}</td>
+								<td>{{ $fixture->against_team }}</td>
+								<td>vs</td>
+								<td>ECSS</td>
+								<td>{{ $fixture->ecs_score }}</td>
+							@endif
+								<td>
+									<!-- Button trigger modal -->
+									<button class="btn btn-default" data-toggle="modal" data-target="#fixtureModal{{ $fixture->fixture_id }}">
+									  View Report
+									</button>
+									
+									<!-- Modal -->
+									<div class="modal fade" id="fixtureModal{{ $fixture->fixture_id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel{{ $fixture->fixture_id }}" aria-hidden="true">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="modalLabel{{ $fixture->fixture_id }}">
+											<div class="fixtureTitle">
+												{{ $fixture->date }}  : &nbsp;
+												@if ($fixture->is_home)
+													{{ $fixture->ecs_score }} |
+													ECSS vs
+													{{ $fixture->against_team }} |
+													{{ $fixture->against_score }}
+												@else 
+													{{ $fixture->against_score }} |
+													{{ $fixture->against_team }}
+													vs ECSS |
+													{{ $fixture->ecs_score }}
+												@endif
+											</div>
+										</h4>
+										  </div>
+										  <div class="modal-body">
+										{{ $fixture->profile }}						
+										<hr/>
+										  </div>
+										  <div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
+										  </div>
+										</div>
+									  </div>
+									</div>	
+								</td>
+								<td>
+									{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture')) }}
+										{{ Form::hidden('id', '$fixture->fixture_id') }}
+										{{ Form::submit('Edit', array('class' => 'btn btn-primary')) }}
+									{{ Form::close() }}
+								</td>
+								<td>
+									{{ Form::open(array('action' => 'FixturesAndResultsController@delete_destroy', 'method'=>'DELETE'), array('style'=>'display: inline;')) }}
+										{{ Form::hidden('id', $fixture->fixture_id) }}
+										{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+									{{ Form::close() }}
+								</td>
+						</tr>
+						
+			@endforeach
+			</table>
 			
 			<div class="right">
 				<button class="btn btn-success" data-toggle="modal" data-target="#fixtureModal">&plus; Add Fixture</button><br/><br/>

@@ -1,13 +1,6 @@
     
-    .fixture{
+    .fixtureTable th{
         text-align: center;
-        border: 1px solid #616161;
-        border-radius: 5px;
-        font-size: 11pt;
-        font-family: Arial;
-        margin-bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
     }
     
     div .left, .right, .center {

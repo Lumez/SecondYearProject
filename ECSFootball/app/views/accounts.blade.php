@@ -4,8 +4,6 @@
 
 @section('head')
 
-{{ HTML::style('css/home.style.css') }}
-
 @stop
 
 @section('body')
@@ -24,7 +22,7 @@
 					<th>Email</th>
 				</tr>
 				@foreach ($players as $player)
-				<tr>
+				<tr onclick="location.href='{{ action('PlayerController@showAccountsPage', $player->id) }}'" style="cursor: pointer;">					
 					<td>{{ $player->id }}</td>
 					<td><img src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture'/></td>
 					<td>{{ $player->first_name }}</td>
@@ -48,7 +46,7 @@
 							<h4 class="modal-title" id="newPlayerModal">Add New Player</h4>
 						</div>
 						<div class="modal-body">
-			       			{{ Form::open(array('action' => 'PlayerController@addNewPlayer', 'class' => 'form-horizontal')) }}
+			       			{{ Form::open(array('action' => 'PlayerController@addPlayer', 'class' => 'form-horizontal')) }}
 			       			<div class="form-group">
 			       				{{ Form::label('first_name', 'First Name', array('class' => 'col-sm-4 control-label')) }}
 			       				<div class="col-sm-8">

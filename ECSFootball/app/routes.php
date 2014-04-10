@@ -29,8 +29,9 @@ Route::get('/league', 'LeagueController@showLeaguePage');
 Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@showProfilePage'));
 
 /* Accounts */
-Route::get('/accounts', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));
-Route::post('/accounts', array('before' => 'auth|admin', 'uses' => 'PlayerController@addNewPlayer'));
+Route::get('/accounts/{playerId?}', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));
+Route::post('/addAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@addPlayer'));
+Route::post('/updateAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@updatePlayer'));
 Route::filter('admin', function()
 {
     if (!Auth::user()->is_admin)

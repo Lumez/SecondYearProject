@@ -9,7 +9,7 @@
 class PlayerController extends BaseController {
 
 	/**
-	 * Returns the built profile page
+	 * Returns the built profile view
 	 *
 	 * @return View the view to be displayed
 	 */
@@ -22,14 +22,43 @@ class PlayerController extends BaseController {
 	}
 
 	/**
-	 * Returns the built accounts page
+	 * Returns an accounts page to be displayed. The page displayed depends on the
+	 * playerId provided.
+	 *
+	 * @param string the player id
 	 *
 	 * @return View the view to be displayed
 	 */
-	public function showAccountsPage() {
+	public function showAccountsPage($playerId = null) {
+		if (!$playerId == null) {
+			return $this->showAccount($playerId);
+		} else {
+			return $this->showAccountsList();
+		}
+	}
+
+	/**
+	 * Returns page with a list of all the accounts.
+	 *
+	 * @return View the view to be displayed
+	 */
+	public function showAccountsList() {
 		$players = Player::get();
 
 		return View::make('accounts', array('players' => $players));
+	}
+
+
+	/**
+	 * Returns the account page with the specified id
+	 *
+	 * @return View the view to be displayed
+	 */
+	public function showAccount($playerId) {
+		$player = Player::where('id', '=', $playerId)
+					->first();
+
+		return View::make('account', array('player' => $player));
 	}
 
 	/**
@@ -38,8 +67,8 @@ class PlayerController extends BaseController {
 	 *
 	 * @return Return a redirect to the accounts page
 	 */
-	public function addNewPlayer() {
-		$v = Player::validate(Input::all());
+	public function addPlayer() {
+		$v = Player::validate(Input::all(), 'adminNew');
 
 		if ($v->passes()) {
 			$player = new Player;
@@ -51,10 +80,29 @@ class PlayerController extends BaseController {
 			$player->is_admin = Input::get('is_admin', 0);
 			$player->save();
 
-			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The new user has been added to the database!');
+			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been added to the database!');
 		} else {
 			Input::flash();
 			return Redirect::action('PlayerController@showAccountsPage')->withErrors($v->messages());
+		}	
+	}
+
+	public function updatePlayer() {
+		$v = Player::validate(Input::all(), 'adminUpdate');
+
+		if ($v->passes()) {
+			$player = Player::find(Input::get('id'));
+			$player->first_name = Input::get('first_name');
+			$player->last_name = Input::get('last_name');
+			$player->is_admin = Input::get('is_admin', 0);
+			$player->about_me = Input::get('about_me', NULL);
+			$player->facebook_URL = Input::get('facebook_URL', NULL);
+			$player->save();
+
+			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been updated!');
+		} else {
+			Input::flash();
+			return Redirect::action('PlayerController@showAccountsPage', Input::get('id'))->withErrors($v->messages());
 		}	
 	}
 }

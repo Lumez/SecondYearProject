@@ -60,18 +60,43 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @return Validator the resulting Validator
 	 */
-	public static function validate($input) {
+	public static function validate($input, $ruleSet) {
 
-        $rules = array(
-                'first_name' => 'Required|Max:50|AlphaNum',
-                'last_name'  => 'Required|Max:50|AlphaNum',
-                'email'      => 'Required|Max:255|Email',
-                'password'   => 'Required|Min:3',
-                'facebook'   => 'Max:255',
-                'is_admin'   => 'Integer|Size:1'
+        $rulesAdminNew = array(
+                'first_name'   => 'Required|Max:50|AlphaNum',
+                'last_name'    => 'Required|Max:50|AlphaNum',
+                'email'        => 'Required|Max:255|Email',
+                'password'     => 'Required|Min:3',
+                'is_admin'     => 'Integer|Size:1',
+                'about_me'     => 'Max:255',
+                'facebook_URL' => 'Max:255'
         );
 
-        return Validator::make($input, $rules);
+        $rulesAdminUpdate = array(
+                'first_name'   => 'Required|Max:50|AlphaNum',
+                'last_name'    => 'Required|Max:50|AlphaNum',
+                'is_admin'     => 'Integer|Size:1',
+                'about_me'     => 'Max:255',
+                'facebook_URL' => 'Max:255'
+        );
+
+        switch ($ruleSet) {
+        	case 'adminNew':
+	        	return Validator::make($input, $rulesAdminNew);
+	        	break;
+
+	        case 'adminUpdate':
+	        	return Validator::make($input, $rulesAdminUpdate);
+	        	break;
+
+	        case 'playerUpdate':
+	        	return Validator::make($input, $rulesAdminUpdate);
+	        	break;
+
+	        default:
+	        	return Validator::make($input, $rulesAdminNew);
+	        	break;
+	    }
 	}
 
 }

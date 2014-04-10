@@ -35,7 +35,7 @@
 				</div>
 				<div class="col-md-3">
 					<!-- Button trigger modal -->
-					<button class="" data-toggle="modal" data-target="#fixtureModal{{ $fixture->fixture_id }}">
+					<button class="btn btn-default" data-toggle="modal" data-target="#fixtureModal{{ $fixture->fixture_id }}">
 					  View Report
 					</button>
 					
@@ -75,42 +75,85 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					<input type="button" title="Edit" value="Edit">&nbsp;
 					{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture')) }}
 						{{ Form::hidden('id', '$fixture->fixture_id') }}
-						{{ Form::submit('Delete') }}
+						{{ Form::submit('Edit', array('class' => 'btn btn-primary')) }}
+					{{ Form::close() }}
+					{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture')) }}
+						{{ Form::hidden('id', '$fixture->fixture_id') }}
+						{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
 					{{ Form::close() }}
 				</div>				
 			</div>
 			@endforeach
+			
+			
+			<div class="right">
+				<button class="btn btn-success" data-toggle="modal" data-target="#fixtureModal">&plus; Add Fixture</button><br/><br/>
+			</div>
 			<hr/>
-				<div class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#add">
-						<button>Add Fixture</button>
-					</a>
-					<div class="dropdown-menu">
-						
-						{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture')) }}
-							<table class="addFixture">
-								<tr><td>Against Team:</td><td> {{ Form::text('against_team', '') }} </td></tr>
-								
-								<tr><td>Date of Match:</td><td> {{ Form::text('date', 'yyyy-mm-dd') }} </td></tr>
-								
-								<tr><td>ECSS' Score:</td><td> {{ Form::text('ecs_score', '0') }} </td></tr>
-								
-								<tr><td>Against Team's Score:</td><td> {{ Form::text('against_score', '0') }} </td></tr>
-						
-								<tr><td>Match Profile:</td><td> {{ Form::textarea('profile', 'Enter your comments here...') }} </td></tr>
-								
-								<tr><td>Home Match? *:</td><td> {{ Form::checkbox('is_home', '1', true) }} (* Tick the box if 'Yes')</td></tr>
-							
-								<tr><td></td><td>{{ Form::submit('Add Fixture') }}</td></tr>
-							</table>
-						{{ Form::close() }}
-						
+			<!-- Modal -->
+			<div class="modal fade" id="fixtureModal" tabindex="-1" role="dialog" aria-labelledby="newFixtureModal" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="newFixtureModal">Add New Fixture</h4>
+						</div>
+						<div class="modal-body">
+			       			{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture')) }}
+			       			<div class="form-group">
+			       				{{ Form::label('against_team', 'Against Team:', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('against_team', '', array('placeholder' => 'e.g. Rocks', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('date', 'Date of Match:', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('date', '', array('placeholder' => 'yyyy-mm-dd', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('ecs_score', 'ECSS Score:', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('ecs_score', '', array('placeholder' => '0', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('against_score', 'Against Team Score:', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::text('against_score', '', array('placeholder' => '0', 'class' => 'form-control')) }}
+								</div>
+							</div>
+							<div class="form-group">
+			       				{{ Form::label('is_home', 'Home Match:', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+			       					<div class="checkbox">
+										{{ Form::checkbox('is_home', '1') }}
+									</div>
+								</div>
+							</div>	
+							<div class="form-group">
+			       				{{ Form::label('profile', 'Match Profile:', array('class' => 'col-sm-4 control-label')) }}
+			       				<div class="col-sm-8">
+									{{ Form::textarea('profile', '', array('placeholder' => 'Enter your comments here...', 'class' => 'form-control')) }}
+								</div>
+							</div>
+															
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							{{ Form::submit('Save', array('class' => 'btn btn-success')) }}
+							{{ Form::close() }}
+						</div>
 					</div>
 				</div>
-			<hr/>
+			</div>
+			
+			
+			
+			
 			<div id="disqus_thread"></div>
 			<script type="text/javascript">
 				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

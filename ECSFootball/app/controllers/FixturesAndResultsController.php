@@ -27,20 +27,12 @@ class FixturesAndResultsController extends BaseController {
 		
 	}
 	
-	public static function deleteFixture(){
-		echo 'dude';
-		$fixID = Input::get('id');
-		DB::table('fixture')->where('fixture_id', '=', $fixID)->delete();
-		//Fixture::delete("delete from fixture where fixture_id={$fixID}");
-		//$fixture = Game::find($fixID);
-		//$fixture->delete();
-		return Redirect::action('FixturesAndResultsController@showFixturePage')->with('success', 'You have successfully deleted the fixture!');
-	}
-	
 	public function delete_destroy(){
 		
-		Fixture::find(Input::get('fixture_id'))->delete();
-		return Redirect::back()->with('success', 'You have deleted a fixture from the database');
+		$fixture_id = Input::get('id');
+		$dude = Fixture::where('fixture_id', $fixture_id);
+		$dude->delete();
+		return Redirect::back()->with('success', "You have deleted a fixture from the database $fixture_id");
 	}
 	
 	public function addFixture(){

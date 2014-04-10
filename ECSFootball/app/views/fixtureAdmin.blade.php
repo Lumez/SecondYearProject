@@ -81,7 +81,7 @@
 					{{ Form::close() }}
 					
 					{{ Form::open(array('action' => 'FixturesAndResultsController@delete_destroy', 'method'=>'DELETE'), array('style'=>'display: inline;')) }}
-						{{ Form::hidden('fixture_id', '$fixture->fixture_id') }}
+						{{ Form::hidden('id', $fixture->fixture_id) }}
 						{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
 					{{ Form::close() }}
 				</div>				

@@ -11,6 +11,14 @@
 |
 */
 
+Route::filter('admin', function()
+{
+    if (!Auth::check() || !Auth::user()->is_admin)
+    {
+        return Redirect::to('/');
+    }
+});
+
 /* News/Home */
 Route::get('/', 'HomeController@showHomePage');
 
@@ -18,12 +26,12 @@ Route::get('/', 'HomeController@showHomePage');
 Route::get('/team', 'TeamController@showTeamPage');
 
 /* Fixtures */
-Route::get('/fixtures', 'FixturesAndResultsController@showFixturePage');
-Route::post('/deleteFixture', 'FixturesAndResultsController@deleteFixture');
-Route::post('/addFixture', 'FixturesAndResultsController@addFixture');
-Route::delete('fixtures/delete', array('uses'=>'FixturesAndResultsController@delete_destroy'));
-Route::get('/fixture/{fixtureId?}', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@showFixturesPage'));
-Route::post('/dude', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@updateFixture'));
+//No auth on this one as everyone need to be able to access parts of this page, auth has to be done in controller
+Route::get('/fixtures/{fixtureId?}', 'FixturesAndResultsController@showFixturesPage');
+
+Route::post('/addFixture', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@addFixture'));
+Route::post('/updateFixture', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@updateFixture'));
+Route::post('/deleteFixture', array('before' => 'auth|admin', 'uses' => 'FixturesAndResultsController@deleteFixture'));
 
 /* League Table */
 Route::get('/league', 'LeagueController@showLeaguePage');
@@ -35,13 +43,6 @@ Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@sho
 Route::get('/accounts/{playerId?}', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));
 Route::post('/addAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@addPlayer'));
 Route::post('/updateAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@updatePlayer'));
-Route::filter('admin', function()
-{
-    if (!Auth::user()->is_admin)
-    {
-        return Redirect::to('/');
-    }
-});
 
 /* Login */
 Route::get('/login', 'LoginController@showLoginPage');

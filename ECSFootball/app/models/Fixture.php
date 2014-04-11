@@ -12,6 +12,9 @@ class Fixture extends Eloquent {
 	 */
 	public $table = 'fixture';
 
+	//Set the primary key of the table (because it's not the standard 'id')
+	public $primaryKey = 'fixture_id';
+
 
 
 
@@ -28,7 +31,7 @@ class Fixture extends Eloquent {
 	 */
 	public static function validate($input) {
             $rules = array(
-                    'against_team'  => 'Required|Min:3|Max:30|AlphaNum',
+                    'against_team'  => 'Required|Min:3|Max:30',
                     'date'          => 'Required|date',
                     'ecs_score'     => 'Required|Max:3',
                     'against_score' => 'Required|Max:3',

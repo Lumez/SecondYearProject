@@ -22,7 +22,7 @@
 					<th>Score</th>
 					<th>Home Team</th>
 					<th></th>
-					<th>Quest Team</th>
+					<th>Away Team</th>
 					<th>Score</th>
 					<th>Match Profile</th>
 					<th>Edit</th>
@@ -89,14 +89,11 @@
 									</div>	
 								</td>
 								<td>
-									{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture')) }}
-										{{ Form::hidden('id', '$fixture->fixture_id') }}
-										{{ Form::submit('Edit', array('class' => 'btn btn-primary')) }}
-									{{ Form::close() }}
+									<a href="{{ action('FixturesAndResultsController@showFixturesPage',  $fixture->fixture_id) }}" class="btn btn-primary">Edit</a>
 								</td>
 								<td>
-									{{ Form::open(array('action' => 'FixturesAndResultsController@delete_destroy', 'method'=>'DELETE'), array('style'=>'display: inline;')) }}
-										{{ Form::hidden('id', $fixture->fixture_id) }}
+									{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture', 'style' => 'display: inline;')) }}
+										{{ Form::hidden('fixture_id', $fixture->fixture_id) }}
 										{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
 									{{ Form::close() }}
 								</td>
@@ -104,11 +101,9 @@
 						
 			@endforeach
 			</table>
-			
 			<div class="right">
 				<button class="btn btn-success" data-toggle="modal" data-target="#fixtureModal">&plus; Add Fixture</button><br/><br/>
 			</div>
-			<hr/>
 			<!-- Modal -->
 			<div class="modal fade" id="fixtureModal" tabindex="-1" role="dialog" aria-labelledby="newFixtureModal" aria-hidden="true">
 				<div class="modal-dialog">
@@ -118,7 +113,7 @@
 							<h4 class="modal-title" id="newFixtureModal">Add New Fixture</h4>
 						</div>
 						<div class="modal-body">
-			       			{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture')) }}
+			       			{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture', 'class' => 'form-horizontal')) }}
 			       			<div class="form-group">
 			       				{{ Form::label('against_team', 'Against Team:', array('class' => 'col-sm-4 control-label')) }}
 			       				<div class="col-sm-8">
@@ -156,8 +151,7 @@
 			       				<div class="col-sm-8">
 									{{ Form::textarea('profile', '', array('placeholder' => 'Enter your comments here...', 'class' => 'form-control')) }}
 								</div>
-							</div>
-															
+							</div>										
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -12,13 +12,11 @@ class FixturesAndResultsController extends BaseController {
 	 *
 	 * @return View the view to be displayed
 	 */
-	public function showFixturePage() {
+	public function showFixtureList() {
 		$latestFixtures = Fixture::orderBy('date', 'desc')
 						->take(5)
 						->get();
 
-		//featuredFilm is called film so that the homepage can use the filmDetails partial
-		//return $this->buildPage('home', array('recentFilms' => $recentFilms, 'film' => $featuredFilm));
 		if ( Auth::check() && Auth::user()->is_admin ){
 			return View::make('fixtureAdmin', array('fixtures' => $latestFixtures));
 		}else {
@@ -27,16 +25,16 @@ class FixturesAndResultsController extends BaseController {
 		
 	}
 	
-	public function delete_destroy(){
+	public function deleteFixture(){
 		
-		$fixture_id = Input::get('id');
-		$fixture = Fixture::where('fixture_id', $fixture_id);
-		$fixture->delete();
-		return Redirect::back()->with('success', "You have deleted a fixture from the database $fixture_id");
+		$fixture = Fixture::find(Input::get('fixture_id'))
+						->delete();	
+
+		return Redirect::action('FixturesAndResultsController@showFixturesPage')->with('success', 'The fixture has been deleted.');
 	}
 	
 	public function addFixture(){
-		$validator = Fixture::validate(Input::all(), 'adminNew');
+		$validator = Fixture::validate(Input::all());
 
 		if($validator->passes()){
 			$date_old = Input::get('date');
@@ -51,21 +49,19 @@ class FixturesAndResultsController extends BaseController {
 			$fixture->is_home = Input::get('is_home');
 			$fixture->save();
 
-			return Redirect::back()->with('success', 'You have a new fixture to the database');
+			return Redirect::action('FixturesAndResultsController@showFixturesPage')->with('success', 'The fixture has been added.');
 		}else{
 			Input::flash();
-			return Redirect::back()->withErrors($validator->messages());
+			return Redirect::action('FixturesAndResultsController@showFixturesPage')->withErrors($validator->messages());
 		}
 	}
 	
 	
 	public function updateFixture() {
-		$validator = Fixture::validate(Input::all(), 'adminUpdate');
+		$validator = Fixture::validate(Input::all());
 
 		if ($validator->passes()) {
-			$fixture_id = Input::get('id');
-			$fixture = Fixture::where('fixture_id', $fixture_id);
-			
+			$fixture = Fixture::find(Input::get('fixture_id'));
 			$fixture->against_team = Input::get('against_team');
 			$fixture->date = Input::get('date');
 			$fixture->ecs_score = Input::get('ecs_score');
@@ -74,10 +70,10 @@ class FixturesAndResultsController extends BaseController {
 			$fixture->profile = Input::get('profile');
 			$fixture->save();
 
-			return Redirect::action('FixturesAndResultsController@showFixturePage')->with('success', 'The fixture has been updated!');
+			return Redirect::action('FixturesAndResultsController@showFixturesPage')->with('success', 'The fixture has been updated.');
 		} else {
 			Input::flash();
-			return Redirect::action('FixturesAndResultsController@showFixturePage', Input::get('id'))->withErrors($validator->messages());
+			return Redirect::action('FixturesAndResultsController@showFixturesPage', Input::get('id'))->withErrors($validator->messages());
 		}	
 	}
 
@@ -85,7 +81,7 @@ class FixturesAndResultsController extends BaseController {
 		if (!$fixtureID == null) {
 			return $this->showFixture($fixtureID);
 		} else {
-			return $this->showFixturePage();
+			return $this->showFixtureList();
 		}
 	}
 
@@ -93,7 +89,11 @@ class FixturesAndResultsController extends BaseController {
 		$fixture = Fixture::where('fixture_id', '=', $fixtureID)
 					->first();
 
-		return View::make('fixtureUpdate', array('fixture' => $fixture));
+		if ( Auth::check() && Auth::user()->is_admin ){
+			return View::make('fixtureUpdate', array('fixture' => $fixture));
+		} else {
+			return Redirect::action('FixturesAndResultsController@showFixturesPage');
+		}
 	}
 }
 

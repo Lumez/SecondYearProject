@@ -58,7 +58,7 @@
 					</div>
 				</div>	
 				<div class="right">								
-					<a href="{{ action('FixturesAndResultsController@showFixturePage') }}" class="btn btn-default">Cancel</a>
+					<a href="{{ action('FixturesAndResultsController@showFixturesPage') }}" class="btn btn-default">Cancel</a>
 					{{ Form::submit('Save Changes', array('class' => 'btn btn-success')) }}
 					{{ Form::close() }}
 				</div>

@@ -80,15 +80,7 @@ class FixturesAndResultsController extends BaseController {
 			return Redirect::action('FixturesAndResultsController@showFixturePage', Input::get('id'))->withErrors($validator->messages());
 		}	
 	}
-	
-	/**
-	 * Returns an accounts page to be displayed. The page displayed depends on the
-	 * playerId provided.
-	 *
-	 * @param string the player id
-	 *
-	 * @return View the view to be displayed
-	 */
+
 	public function showFixturesPage($fixtureID = null) {
 		if (!$fixtureID == null) {
 			return $this->showFixture($fixtureID);
@@ -97,13 +89,6 @@ class FixturesAndResultsController extends BaseController {
 		}
 	}
 
-
-
-	/**
-	 * Returns the account page with the specified id
-	 *
-	 * @return View the view to be displayed
-	 */
 	public function showFixture($fixtureID) {
 		$fixture = Fixture::where('fixture_id', '=', $fixtureID)
 					->first();

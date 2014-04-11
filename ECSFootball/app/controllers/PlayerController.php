@@ -76,8 +76,8 @@ class PlayerController extends BaseController {
 			$player->last_name = Input::get('last_name');
 			$player->email = Input::get('email');
 			$player->password = Hash::make(Input::get('password'));
-			$player->facebook_URL = Input::get('facebook_URL', NULL);
 			$player->is_admin = Input::get('is_admin', 0);
+			$player->facebook_URL = Input::get('facebook_URL', NULL);
 			$player->save();
 
 			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been added.');
@@ -103,6 +103,9 @@ class PlayerController extends BaseController {
 			$player->is_admin = Input::get('is_admin', 0);
 			$player->about_me = Input::get('about_me', NULL);
 			$player->facebook_URL = Input::get('facebook_URL', NULL);
+			$player->position = Input::get('position', NULL);
+			$player->nationality = Input::get('nationality', NULL);
+			$player->number = Input::get('number', NULL);
 			$player->save();
 
 			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been updated.');

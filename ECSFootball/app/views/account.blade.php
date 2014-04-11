@@ -34,6 +34,24 @@
 					</div>
 				</div>
 				<div class="form-group">
+					{{ Form::label('nationality', 'Nationality', array('class' => 'col-sm-4 control-label')) }}
+					<div class="col-sm-8">
+						{{ Form::text('nationality', $player->nationality, array('placeholder' => 'Nationality', 'class' => 'form-control')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('position', 'Position', array('class' => 'col-sm-4 control-label')) }}
+					<div class="col-sm-8">
+						{{ Form::text('position', $player->position, array('placeholder' => 'Position', 'class' => 'form-control')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('number', 'Player Number', array('class' => 'col-sm-4 control-label')) }}
+					<div class="col-sm-8">
+						{{ Form::text('number', $player->number, array('placeholder' => 'Player Number', 'class' => 'form-control')) }}
+					</div>
+				</div>
+				<div class="form-group">
 					{{ Form::label('about_me', 'About Me', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
 						{{ Form::textarea('about_me', $player->about_me, array('placeholder' => '', 'class' => 'form-control')) }}

@@ -117,27 +117,27 @@
 						</div>
 						<div class="modal-body">
 			       			{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture', 'class' => 'form-horizontal')) }}
-			       			<div class="form-group">
+							<div class="form-group">
 			       				{{ Form::label('against_team', 'Against Team:', array('class' => 'col-sm-4 control-label')) }}
-			       				<div class="col-sm-8">
+								<div class="col-sm-8">
 									{{ Form::text('against_team', '', array('placeholder' => 'e.g. Rocks', 'class' => 'form-control')) }}
 								</div>
 							</div>
 							<div class="form-group">
 			       				{{ Form::label('date', 'Date of Match:', array('class' => 'col-sm-4 control-label')) }}
-			       				<div class="col-sm-8">
+								<div class="col-sm-8">
 									{{ Form::text('date', '', array('placeholder' => 'yyyy-mm-dd', 'class' => 'form-control')) }}
 								</div>
 							</div>
 							<div class="form-group">
 			       				{{ Form::label('ecs_score', 'ECSS Score:', array('class' => 'col-sm-4 control-label')) }}
-			       				<div class="col-sm-8">
+								<div class="col-sm-8">
 									{{ Form::text('ecs_score', '', array('placeholder' => '0', 'class' => 'form-control')) }}
 								</div>
 							</div>
 							<div class="form-group">
 			       				{{ Form::label('against_score', 'Against Team Score:', array('class' => 'col-sm-4 control-label')) }}
-			       				<div class="col-sm-8">
+								<div class="col-sm-8">
 									{{ Form::text('against_score', '', array('placeholder' => '0', 'class' => 'form-control')) }}
 								</div>
 							</div>
@@ -151,7 +151,7 @@
 							</div>	
 							<div class="form-group">
 			       				{{ Form::label('profile', 'Match Profile:', array('class' => 'col-sm-4 control-label')) }}
-			       				<div class="col-sm-8">
+								<div class="col-sm-8">
 									{{ Form::textarea('profile', '', array('placeholder' => 'Enter your comments here...', 'class' => 'form-control')) }}
 								</div>
 							</div>										

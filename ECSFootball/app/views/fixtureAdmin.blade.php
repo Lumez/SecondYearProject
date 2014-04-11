@@ -31,16 +31,16 @@
 			
 			@foreach ($fixtures as $fixture)
 	
-						<tr onclick="location.href='{{ action('FixturesAndResultsController@showFixturesPage', $fixture->fixture_id) }}'" style="cursor: pointer;">					
+						<tr>					
 							@if ($fixture->is_home == 1)
-								<td>{{ $fixture->date }}</td>
+								<td>{{ date('d F Y',strtotime($fixture->date)); }}</td>
 								<td>{{ $fixture->ecs_score }}</td>
 								<td>ECSS</td>
 								<td>vs</td>
 								<td>{{ $fixture->against_team }}</td>
 								<td>{{ $fixture->against_score }}</td>
 							@else
-								<td>{{ $fixture->date }}</td>
+								<td>{{ date('d F Y',strtotime($fixture->date)); }}</td>
 								<td>{{ $fixture->against_score }}</td>
 								<td>{{ $fixture->against_team }}</td>
 								<td>vs</td>
@@ -50,7 +50,7 @@
 								<td>
 									<!-- Button trigger modal -->
 									<button class="btn btn-default" data-toggle="modal" data-target="#fixtureModal{{ $fixture->fixture_id }}">
-									  View Report
+										<span class="glyphicon glyphicon-comment"></span>
 									</button>
 									
 									<!-- Modal -->
@@ -61,7 +61,7 @@
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 										<h4 class="modal-title" id="modalLabel{{ $fixture->fixture_id }}">
 											<div class="fixtureTitle">
-												{{ $fixture->date }}  : &nbsp;
+												{{ date('d F Y',strtotime($fixture->date)); }}  : &nbsp;
 												@if ($fixture->is_home)
 													{{ $fixture->ecs_score }} |
 													ECSS vs
@@ -82,19 +82,21 @@
 										  </div>
 										  <div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
+										<!--<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span></button>-->
 										  </div>
 										</div>
 									  </div>
 									</div>	
 								</td>
 								<td>
-									<a href="{{ action('FixturesAndResultsController@showFixturesPage',  $fixture->fixture_id) }}" class="btn btn-primary">Edit</a>
+									<a href="{{ action('FixturesAndResultsController@showFixturesPage',  $fixture->fixture_id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
 								</td>
 								<td>
 									{{ Form::open(array('action' => 'FixturesAndResultsController@deleteFixture', 'style' => 'display: inline;')) }}
 										{{ Form::hidden('fixture_id', $fixture->fixture_id) }}
-										{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+										<button type="submit" class="btn btn-danger">
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
 									{{ Form::close() }}
 								</td>
 						</tr>
@@ -104,6 +106,7 @@
 			<div class="right">
 				<button class="btn btn-success" data-toggle="modal" data-target="#fixtureModal">&plus; Add Fixture</button><br/><br/>
 			</div>
+			
 			<!-- Modal -->
 			<div class="modal fade" id="fixtureModal" tabindex="-1" role="dialog" aria-labelledby="newFixtureModal" aria-hidden="true">
 				<div class="modal-dialog">
@@ -155,13 +158,13 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							{{ Form::submit('Save', array('class' => 'btn btn-success')) }}
+							<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> &nbsp;Save </button>
 							{{ Form::close() }}
 						</div>
 					</div>
 				</div>
 			</div>
-			
+			<hr/>
 			
 			
 			

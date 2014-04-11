@@ -12,6 +12,9 @@ class Article extends Eloquent {
 	 */
 	public $table = 'article';
 
+        //Set the primary key of the table (because it's not the standard 'id')
+	public $primaryKey = 'article_id';
+
 
 
 
@@ -27,12 +30,13 @@ class Article extends Eloquent {
 	 * @return Validator the resulting Validator
 	 */
 	public static function validate($input) {
-
-        $rules = array(
-                'reviewer' => 'Required|Min:3|Max:30|AlphaNum',
-                'comment'     => 'Required|Max:200',
-                'liked'       => 'Required|Integer|Size:1'
-        );
+            $rules = array(
+                    'title'          => 'Required|Min:3|Max:30',
+                    'display_date'   => 'Required|date',
+                    'picture_URL'    => 'Max:200',
+                    'description'    => 'Required',
+                    'pin'            => 'Integer|Size:1'
+            );
 
         return Validator::make($input, $rules);
 	}

@@ -69,7 +69,10 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
                 'password'     => 'Required|Min:3',
                 'is_admin'     => 'Integer|Size:1',
                 'about_me'     => 'Max:255',
-                'facebook_URL' => 'Max:255'
+                'facebook_URL' => 'Max:255',
+                'position'     => 'Max:255',
+                'nationality'  => 'Max:255',
+                'number'       => 'Integer|Max:2'
         );
 
         $rulesAdminUpdate = array(
@@ -77,7 +80,10 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
                 'last_name'    => 'Required|Max:50|AlphaNum',
                 'is_admin'     => 'Integer|Size:1',
                 'about_me'     => 'Max:255',
-                'facebook_URL' => 'Max:255'
+                'facebook_URL' => 'Max:255',
+                'position'     => 'Max:255',
+                'nationality'  => 'Max:255',
+                'number'       => 'Integer|Max:2'
         );
 
         switch ($ruleSet) {

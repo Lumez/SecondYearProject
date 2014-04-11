@@ -43,6 +43,7 @@ Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@sho
 Route::get('/accounts/{playerId?}', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));
 Route::post('/addAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@addPlayer'));
 Route::post('/updateAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@updatePlayer'));
+Route::post('/deleteAccount', array('before' => 'auth|admin', 'uses' => 'PlayerController@deletePlayer'));
 
 /* Login */
 Route::get('/login', 'LoginController@showLoginPage');

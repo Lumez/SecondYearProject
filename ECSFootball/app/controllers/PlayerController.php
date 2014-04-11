@@ -80,13 +80,19 @@ class PlayerController extends BaseController {
 			$player->is_admin = Input::get('is_admin', 0);
 			$player->save();
 
-			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been added to the database!');
+			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been added.');
 		} else {
 			Input::flash();
 			return Redirect::action('PlayerController@showAccountsPage')->withErrors($v->messages());
 		}	
 	}
 
+	/**
+	 * Updates the data for player if it passes the validation checks. Returns redirect to accounts page
+	 * with a success notification or the errors that occured.
+	 *
+	 * @return Return a redirect to the accounts page
+	 */
 	public function updatePlayer() {
 		$v = Player::validate(Input::all(), 'adminUpdate');
 
@@ -99,10 +105,22 @@ class PlayerController extends BaseController {
 			$player->facebook_URL = Input::get('facebook_URL', NULL);
 			$player->save();
 
-			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been updated!');
+			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been updated.');
 		} else {
 			Input::flash();
 			return Redirect::action('PlayerController@showAccountsPage', Input::get('id'))->withErrors($v->messages());
-		}	
+		}
 	}
+
+	/**
+	 * Deletes a player from the database. Returns redirect to accounts page.
+	 *
+	 * @return Return a redirect to the accounts page
+	 */
+	public function deletePlayer() {
+		$player = Player::find(Input::get('id'))
+					->delete();
+
+		return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been deleted.');
+	}	
 }

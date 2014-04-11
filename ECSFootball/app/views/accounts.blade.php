@@ -20,6 +20,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th></th>
 				</tr>
 				@foreach ($players as $player)
 				<tr onclick="location.href='{{ action('PlayerController@showAccountsPage', $player->id) }}'" style="cursor: pointer;">					
@@ -28,6 +29,14 @@
 					<td>{{ $player->first_name }}</td>
 					<td>{{ $player->last_name }}</td>
 					<td>{{ $player->email }}</td>
+					<td>
+						{{ Form::open(array('action' => 'PlayerController@deletePlayer')) }}
+							{{ Form::hidden('id', $player->id) }}
+							<button type="submit" class="btn btn-danger">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						{{ Form::close() }}
+					</td>
 				</tr>
 				@endforeach
 			</table>
@@ -62,7 +71,7 @@
 							<div class="form-group">
 			       				{{ Form::label('email', 'Email', array('class' => 'col-sm-4 control-label')) }}
 			       				<div class="col-sm-8">
-									{{ Form::text('email', '', array('placeholder' => 'Email Address', 'class' => 'form-control')) }}
+									{{ Form::email('email', '', array('placeholder' => 'Email Address', 'class' => 'form-control')) }}
 								</div>
 							</div>
 							<div class="form-group">

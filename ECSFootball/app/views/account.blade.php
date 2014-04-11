@@ -18,43 +18,43 @@
 				<div class="form-group">
 					{{ Form::label('first_name', 'First Name', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('first_name', $player->first_name, array('placeholder' => 'First Name', 'class' => 'form-control')) }}
+						{{ Form::text('first_name', $player->first_name, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">
 					{{ Form::label('last_name', 'Last Name', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('last_name', $player->last_name, array('placeholder' => 'Last Name', 'class' => 'form-control')) }}
+						{{ Form::text('last_name', $player->last_name, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">
 					{{ Form::label('facebook_URL', 'Facebook Username', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('facebook_URL', $player->facebook_URL, array('placeholder' => 'Facebook Username', 'class' => 'form-control')) }}
+						{{ Form::text('facebook_URL', $player->facebook_URL, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">
 					{{ Form::label('nationality', 'Nationality', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('nationality', $player->nationality, array('placeholder' => 'Nationality', 'class' => 'form-control')) }}
+						{{ Form::text('nationality', $player->nationality, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">
 					{{ Form::label('position', 'Position', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('position', $player->position, array('placeholder' => 'Position', 'class' => 'form-control')) }}
+						{{ Form::text('position', $player->position, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">
 					{{ Form::label('number', 'Player Number', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('number', $player->number, array('placeholder' => 'Player Number', 'class' => 'form-control')) }}
+						{{ Form::text('number', $player->number, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">
 					{{ Form::label('about_me', 'About Me', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::textarea('about_me', $player->about_me, array('placeholder' => '', 'class' => 'form-control')) }}
+						{{ Form::textarea('about_me', $player->about_me, array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="form-group">

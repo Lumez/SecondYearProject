@@ -5,7 +5,7 @@
 
 		{{ Form::label('email', 'Subscribe now to recieve the latest society updates!', array('class' => 'awesome')) }}
 
-		{{ Form::text('email', 'example@gmail.com') }}
+		{{ Form::text('email', '', array('placeholder' => 'Email Address')) }}
 
 		{{ Form::submit('Subscribe!') }}
 

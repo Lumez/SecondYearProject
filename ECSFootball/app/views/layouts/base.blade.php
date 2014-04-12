@@ -5,6 +5,7 @@
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::style('css/contact.style.css') }}
 	{{ HTML::style('css/sidebar.style.css') }}
+	{{ HTML::style('css/home.style.css') }}
 
 	{{ HTML::script('https://code.jquery.com/jquery.js') }}
 	{{ HTML::script('lib/bootstrap/js/bootstrap.min.js') }}

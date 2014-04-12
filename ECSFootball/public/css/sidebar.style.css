@@ -2,6 +2,7 @@
     border: 1px solid rgba(0,0,0, 0.2);
     border-radius: 7px;
     background-color: rgba(0,0,0, 0.08);
+    padding: 10px;
 }
 
 .sidebarFixture{
@@ -18,4 +19,14 @@
     border: 1px solid rgba(0,0,0, 0.2);
     background-color: rgba(0,0,0, 0.1);
     margin-bottom: 5px;
+}
+
+.sidebarItem h5{
+    text-align: left;
+}
+
+.sidebarItem hr{
+    border: 1px solid rgba(0,0,0, 0.3);
+    padding: -5px;
+    margin: 0px;
 }

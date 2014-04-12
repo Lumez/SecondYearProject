@@ -26,7 +26,6 @@ class SubscribeController extends BaseController {
 
 			Mail::send('emails.subscribed', array(), function($message) use ($subscriber)
 			{
-				$message->from('noreply@bdixon.co.uk', 'ECSS Football');
 				$message->to($subscriber->email)->subject('Welcome to ECSS Football!');
 			});
 

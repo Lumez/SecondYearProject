@@ -1,14 +1,7 @@
 <br/>
-<div style="border:solid 1px #BDC4D6;"> 
-	
-	<br>
-
-	<h4>
-		<b>Subscribe Now!</b>
-	</h4>
-
+<div class="sidebarItem"> 
+	<h4><b>Subscribe Now!</b></h4>
 	{{ Form::open(array('action' => 'SubscribeController@addSubscriber')) }}
-
 
 		{{ Form::label('email', 'Subscribe now to recieve the latest society updates!', array('class' => 'awesome')) }}
 
@@ -17,7 +10,5 @@
 		{{ Form::submit('Subscribe!') }}
 
 	{{ Form::close() }}
-
 	<br/>
-
 </div>

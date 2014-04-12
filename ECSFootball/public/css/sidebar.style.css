@@ -1,0 +1,21 @@
+.sidebarItem{
+    border: 1px solid rgba(0,0,0, 0.2);
+    border-radius: 7px;
+    background-color: rgba(0,0,0, 0.08);
+}
+
+.sidebarFixture{
+    text-align: center;
+    margin: auto;
+    border-spacing: 5px;
+}
+
+.sidebarFixture td{
+    padding: 5px;
+}
+
+.sidebarFixture tr{
+    border: 1px solid rgba(0,0,0, 0.2);
+    background-color: rgba(0,0,0, 0.1);
+    margin-bottom: 5px;
+}

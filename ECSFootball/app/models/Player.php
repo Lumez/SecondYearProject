@@ -83,7 +83,7 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
                 'facebook_URL' => 'Max:255',
                 'position'     => 'Max:255',
                 'nationality'  => 'Max:255',
-                'number'       => 'Integer|Max:2'
+                'number'       => 'Integer|Max:99'
         );
 
         switch ($ruleSet) {

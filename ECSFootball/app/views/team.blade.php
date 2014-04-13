@@ -24,7 +24,11 @@
 			<img class="img-thumbnail pull-left"  src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture?type=large'/>
 				<h3>{{ $player->first_name }} {{ $player->last_name }}</h3>
 				<br>
-				<p>{{ $player->about_me }}</p>
+				<p><b>Number:</b> {{ $player->number }}</p>
+				<p><b>Position:</b> {{ $player->position }}</p>
+				<p><b>Nationality:</b> {{ $player->nationality }}</p>
+				<br><br>
+				<p class="pull-left"><b>About Me:</b> {{ $player->about_me }}</p>
 			</div>
 			@endforeach
 		</div>

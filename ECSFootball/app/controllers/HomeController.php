@@ -80,7 +80,7 @@ class HomeController extends BaseController {
 			$article->display_date = Input::get('display_date');
 			$article->picture_URL = Input::get('picture_URL');
 			$article->description = Input::get('description');
-			$article->pin = Input::get('pin');
+			$article->pin = Input::get('pin', 0);
 			$article->save();
 
 			return Redirect::action('HomeController@showHomePage')->with('success', 'The fixture has been updated.');
@@ -103,8 +103,27 @@ class HomeController extends BaseController {
 			$article->display_date = $display_date_new;
 			$article->picture_URL = Input::get('picture_URL');
 			$article->description = Input::get('description');
-			$article->pin = Input::get('pin');
+			$article->pin = Input::get('pin', 0);
 			$article->save();
+
+			//Really don't know why this is needed but it just doesn't seem to work otherwise??
+			$articleAsArray = array(
+				'title' => $article->title,
+				'description' => $article->description,
+				'display_date' => $article->display_date
+			);
+
+			$subscribers = Subscriber::get();
+			$hashids = new Hashids\Hashids('nizze');
+
+			foreach ($subscribers as $subscriber) {
+				$shortId = $hashids->encrypt($subscriber->id);
+				Mail::queue('emails.latestNews', array('articleAsArray' => $articleAsArray, 'shortId' => $shortId), function($message) use ($subscriber, $article)
+				{
+					$message->to($subscriber->email)->subject($article->title);
+				});
+			}
+			
 
 			return Redirect::action('HomeController@showHomePage')->with('success', 'The article has been added.');
 		}else{

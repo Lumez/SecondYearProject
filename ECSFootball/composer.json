@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"yangqi/htmldom": "dev-master"
+		"hashids/hashids": "0.3.*@dev"
 	},
 	"autoload": {
 		"classmap": [

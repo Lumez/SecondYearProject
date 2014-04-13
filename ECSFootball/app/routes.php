@@ -58,6 +58,7 @@ Route::get('/logout', 'LoginController@doLogout');
 
 /* Email Subscribe */
 Route::post('/subscribe', 'SubscribeController@addSubscriber');
+Route::post('/unsubscribe/{shortId?}', 'SubscribeController@removeSubscriber');
 
 /* Contact Us */
 Route::get('/contact', 'ContactController@showContactPage');

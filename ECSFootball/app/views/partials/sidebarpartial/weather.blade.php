@@ -5,29 +5,35 @@
 	<h4><b>Weather forecast</b></h4>
 	
 	<div style = "text-align:left; padding-left:15px;">
+	
+		<hr/>
+		<table class="weathertable">
 
-	<br/>	
-	<hr/>
+			@foreach($weather_array as $day)
 
-		@foreach($weather_array as $day)
+				<?php 
+					$date = strtotime($day->date);
+					$myDate = date ('(D)d M', $date);
+				?>
 
-			<?php 
-				$date = strtotime($day->date);
-				$myDate = date ('(D)d M ', $date);
-			?>
-			
-			<p>  
-				<b>{{ $myDate }}</b> --
+				<tr>	
+					<td >  
+						&nbsp; <b>{{ $myDate }}</b>
+					</td>
 
-				<!-- Weather Icon Image -->
-				<img src= "{{ $day->weatherIconUrl[0]->value }}" alt= "{{ $day->weatherDesc[0]->value }}" id="weathericon"/>
-				{{ $day->weatherDesc[0]->value }} 
+					<td>
+						<!-- Weather Icon Image -->
+						<img src= "{{ $day->weatherIconUrl[0]->value }}" alt= "{{ $day->weatherDesc[0]->value }}" id="weathericon"/>
+						{{ $day->weatherDesc[0]->value }} &nbsp;
+					</td>
 
-			</p>
+					</p>
 
-			<hr/>
+				</tr>
+			@endforeach
 
-		@endforeach
+		</table>
+
 	</div>
 	<br/>
 	

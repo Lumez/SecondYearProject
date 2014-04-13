@@ -2,3 +2,14 @@
 	width:20px;
 	height:20px;
 }
+
+.weathertable tr{
+
+ 	border: 1px solid rgba(0,0,0, 0.2);
+    background-color: rgba(0,0,0, 0.1);
+}
+
+.weathertable td{
+
+	padding:5px 0px;
+}

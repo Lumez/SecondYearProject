@@ -22,7 +22,9 @@
 					<div class="article">
 						<h3>{{ $article->title }}</h3>
 						<img class="newsImage" src="{{ $article->picture_URL }}" width="200px;">
-						<p class="newsDesc">{{ $article->description }} <a href="{{ action('HomeController@showArticlesPage',  $article->article_id) }}"> Read More...</a></p>
+						<!--{{ $description = $article->description; }}
+						{{ $description = substr($description,0,555).'...'; }}-->
+						<p class="newsDesc">{{ $description }} <a href="{{ action('HomeController@showArticlesPage',  $article->article_id) }}"> Read More</a></p>
 						<p><span class="glyphicon glyphicon-calendar"></span> {{ date('d F Y',strtotime($article->display_date)); }}</p>
 					</div>
 				</div>

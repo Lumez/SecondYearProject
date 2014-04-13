@@ -61,6 +61,7 @@ Route::post('/subscribe', 'SubscribeController@addSubscriber');
 
 /* Contact Us */
 Route::get('/contact', 'ContactController@showContactPage');
+Route::post('/contact','ContactController@getContactUsForm');
 
 
 

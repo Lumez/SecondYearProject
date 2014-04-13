@@ -28,8 +28,8 @@ class ContactController extends BaseController {
 		$rules = array (
 			'firstname' => 'required|alpha',
 			'surname' => 'required|alpha',
-			'email'=>'numeric|email',
-			'subject' => 'required|email',
+			'email'=>'required|email',
+			'subject' => 'required|alpha',
 			'message' => 'required|min:25'
 		);
 		
@@ -40,12 +40,12 @@ class ContactController extends BaseController {
 		if ($validator -> passes()){
 		
 			//Send email using Laravel send function
-			Mail::send('emails.hello', $data, function($message) use ($data)
+			Mail::send('emails.sendContact', $data, function($message) use ($data)
 			{
 				//email 'From' field: Get users email add and name
-				$message->from($data['email'] , $data['first_name']);
+				$message->from($data['email'] , $data['firstname']);
 				//email 'To' field: cahnge this to emails that you want to be notified. 
-				$message->to('me@gmail.com', 'my name')->cc('me@gmail.com')->subject('contact request');
+				$message->to('caiguoyuan@gmail.com', 'my name')->cc('me@gmail.com')->subject('contact request');
 			});
 			
 			return Redirect::action('ContactController@showContactPage')->with('success', 'The email have been sent. The team will contact you us soon as possible');

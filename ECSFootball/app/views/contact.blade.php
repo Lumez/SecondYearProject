@@ -17,7 +17,7 @@
 				<h3>Contact Us</h3>
 				<p>If you have any query about the team, please fill in the form below:</p>
 				<hr />
-				{{ Form::open(array('action' => 'FixturesAndResultsController@addFixture', 'class' => 'form-horizontal')) }}
+				{{ Form::open(array('action' => 'ContactController@getContactUsForm', 'class' => 'form-horizontal')) }}
 					<div class="form-group">
 						{{ Form::label('firstname', 'Firstname:', array('class' => 'col-sm-4 control-label')) }}
 						<div class="col-sm-8">

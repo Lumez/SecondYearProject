@@ -40,13 +40,19 @@ class SubscribeController extends BaseController {
 	}
 
 
-	public function removeSubscriber($shortId){
-		$hashids = new Hashids\Hashids('nizze');
-
-		$subscriber = Subscriber::findOrFail($hashids->decrypt($shortId));
-		$subscriber->delete();
-
-		return Redirect::action('HomeController@showHomePage')->with('success', 'You have been removed from the mailing list.');
+	public function removeSubscriber($shortId = null){
+		if ($shortId != null) {
+			$hashids = new Hashids\Hashids('nizze');
+			$id = $hashids->decrypt($shortId);
+			if (is_integer($id) && Subscriber::where('id', '=', $id)->exists()) {
+				$subscriber = Subscriber::destroy($hashids->decrypt($shortId));
+				return Redirect::action('HomeController@showHomePage')->with('success', 'You have been removed from the mailing list.');
+			} else {
+				return App::abort(404);
+			}
+		} else {
+			return App::abort(404);
+		}
 	}
 
 }

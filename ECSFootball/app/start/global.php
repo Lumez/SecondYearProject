@@ -55,7 +55,12 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 App::error(function(ModelNotFoundException $e)
 {
-    return Response::make('Not Found', 404);
+    App::abort(404);
+});
+
+App::missing(function($exception)
+{
+    return Response::view('errors.404', array(), 404);
 });
 
 /*

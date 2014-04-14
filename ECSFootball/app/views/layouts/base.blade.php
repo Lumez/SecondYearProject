@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	{{ HTML::style('lib/bootstrap/css/bootstrap.css') }}
+	{{ HTML::style('lib/datepicker/css/datepicker.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::style('css/contact.style.css') }}
 	{{ HTML::style('css/sidebar.style.css') }}
@@ -9,6 +10,7 @@
 
 	{{ HTML::script('https://code.jquery.com/jquery.js') }}
 	{{ HTML::script('lib/bootstrap/js/bootstrap.min.js') }}
+	{{ HTML::script('lib/datepicker/js/bootstrap-datepicker.js') }}
 	{{ HTML::script('js/holder.js') }}
 	{{ HTML::script('js/ecss.js') }}
 

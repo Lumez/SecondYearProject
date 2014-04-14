@@ -4,6 +4,12 @@
 
 @section('head')
 
+<script>
+	$(function() {
+		$('#dp1').datepicker();
+	});
+</script>
+
 @stop
 
 @section('body')
@@ -24,7 +30,7 @@
 				<div class="form-group">
 					{{ Form::label('display_date', 'Display Date:', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
-						{{ Form::text('display_date', $article->display_date, array('placeholder' => 'yyyy-mm-dd', 'class' => 'form-control')) }}
+						{{ Form::text('display_date', $article->display_date, array('placeholder' => 'yyyy-mm-dd', 'class' => 'form-control', 'data-date-format' => 'yyyy-mm-dd', 'id' => 'dp1')) }}
 					</div>
 				</div>
 				<div class="form-group">

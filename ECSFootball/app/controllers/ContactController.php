@@ -26,10 +26,10 @@ class ContactController extends BaseController {
 		
 		//Validation rules
 		$rules = array (
-			'firstname' => 'required|alpha',
-			'surname' => 'required|alpha',
+			'first_name' => 'required|alpha',
+			'last_name' => 'required|alpha',
 			'email'=>'required|email',
-			'subject' => 'required|alpha',
+			'subject' => 'required',
 			'message' => 'required|min:25'
 		);
 		
@@ -38,17 +38,18 @@ class ContactController extends BaseController {
 		
 		//If everything is correct than run passes.
 		if ($validator -> passes()){
+
+			//Add the users IP address to the data array
+			$data = array_add($data, 'clientIP', Request::getClientIp());
 		
 			//Send email using Laravel send function
-			Mail::send('emails.sendContact', $data, function($message) use ($data)
+			Mail::send('emails.sendContact', array('data' => $data), function($message) use ($data)
 			{
-				//email 'From' field: Get users email add and name
-				$message->from($data['email'] , $data['firstname']);
-				//email 'To' field: cahnge this to emails that you want to be notified. 
-				$message->to('caiguoyuan@gmail.com', 'my name')->cc('me@gmail.com')->subject('contact request');
+				//email to the ECSS Football account, cc-ing to Aaron, with the subject set by the user 
+				$message->to('ecss.football@gmail.com')->cc('caiguoyuan@gmail.com')->subject('Contact Form Message');
 			});
 			
-			return Redirect::action('ContactController@showContactPage')->with('success', 'The email have been sent. The team will contact you us soon as possible');
+			return Redirect::action('ContactController@showContactPage')->with('success', 'Your message has been submitted. The team will contact you as soon as possible.');
 		} else {
 			Input::flash();
 			return Redirect::action('ContactController@showContactPage')->withErrors($validator->messages());

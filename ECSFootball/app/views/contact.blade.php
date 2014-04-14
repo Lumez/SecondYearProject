@@ -19,15 +19,15 @@
 				<hr />
 				{{ Form::open(array('action' => 'ContactController@getContactUsForm', 'class' => 'form-horizontal')) }}
 					<div class="form-group">
-						{{ Form::label('firstname', 'Firstname:', array('class' => 'col-sm-4 control-label')) }}
+						{{ Form::label('first_name', 'First Name:', array('class' => 'col-sm-4 control-label')) }}
 						<div class="col-sm-8">
-							{{ Form::text('firstname', '', array('placeholder' => 'e.g. Ben', 'class' => 'form-control')) }}
+							{{ Form::text('first_name', '', array('placeholder' => 'e.g. Ben', 'class' => 'form-control')) }}
 						</div>
 					</div>
 					<div class="form-group">
-						{{ Form::label('surname', 'Surname:', array('class' => 'col-sm-4 control-label')) }}
+						{{ Form::label('last_name', 'Last Name:', array('class' => 'col-sm-4 control-label')) }}
 						<div class="col-sm-8">
-							{{ Form::text('surname', '', array('placeholder' => 'e.g. Dixon', 'class' => 'form-control')) }}
+							{{ Form::text('last_name', '', array('placeholder' => 'e.g. Dixon', 'class' => 'form-control')) }}
 						</div>
 					</div>
 					<div class="form-group">

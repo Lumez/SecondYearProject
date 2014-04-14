@@ -56,7 +56,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-			       				{{ Form::label('pin', 'Priority:', array('class' => 'col-sm-4 control-label')) }}
+			       				{{ Form::label('pin', 'Pinned:', array('class' => 'col-sm-4 control-label')) }}
 			       				<div class="col-sm-8">
 			       					<div class="checkbox">
 										{{ Form::checkbox('pin', '1') }}

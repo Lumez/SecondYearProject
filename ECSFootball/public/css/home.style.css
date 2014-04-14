@@ -25,3 +25,10 @@
     text-align: right;
     margin-bottom: 10px;
 }
+
+.pinned-post {
+    border: 1px solid rgba(0,0,0, 0.2);
+    border-radius: 7px;
+    background-color: rgba(0,0,0, 0.08);
+    padding: 0px 20px;
+}

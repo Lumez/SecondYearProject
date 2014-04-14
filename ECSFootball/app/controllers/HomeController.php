@@ -13,7 +13,8 @@ class HomeController extends BaseController {
 	 * @return View the view to be displayed
 	 */
 	public function showHomePage() {
-		$latestArticles = Article::orderBy('display_date', 'desc')
+		$latestArticles = Article::orderBy('pin', 'desc')
+						->orderBy('display_date', 'desc')
 						->paginate(5);
                 
         if ( Auth::check() && Auth::user()->is_admin ){

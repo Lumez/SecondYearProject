@@ -78,12 +78,14 @@
 			@foreach ($articles as $article)
 			<div class="row">
 				<div class="col-sm-12">
+					@if ($article->pin)
+					<div class="article pinned-post">
+					@else
 					<div class="article">
+					@endif
 						<div class="row">
-							<div class="col-sm-6">
-								<a href="{{ action('HomeController@showArticlePage', $article->article_id) }}"><span class="articleTitle">{{ $article->title }}</span></a>
-							</div>
-							<div class="col-sm-3">
+							<div class="col-sm-9">
+								<a href="{{ action('HomeController@showArticlePage', $article->article_id) }}"><h3>{{ $article->title }}</h3></a>
 							</div>
 							<div class="col-sm-3 editDelete">
 									<a href="{{ action('HomeController@showArticleUpdatePage',  $article->article_id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -101,7 +103,12 @@
 						{{ $description = substr($description,0,555).'...'; }}-->
 						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
 						<p class="newsDesc">{{ $description }} <a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"> Read More</a></p>
-						<p><span class="glyphicon glyphicon-calendar"></span> {{ date('d F Y',strtotime($article->display_date)); }}</p>
+						<p>
+							<span class="glyphicon glyphicon-calendar"></span> {{ date('d F Y',strtotime($article->display_date)); }}
+							@if ($article->pin)
+							- Pinned
+							@endif
+						</p>
 					</div>
 				</div>
 			</div>

@@ -14,12 +14,76 @@ class PlayerController extends BaseController {
 	 * @return View the view to be displayed
 	 */
 	public function showProfilePage() {
-		$latestArticles = Article::orderBy('display_date', 'desc')
-						->take(5)
-						->get();
+		$player = Player::find(Auth::user()->id);
 
-		return View::make('profile', array('articles' => $latestArticles));
+		return View::make('profile', array('player' => $player));
 	}
+
+	/**
+	 * Updates the data for the current user if it passes the validation checks. Returns redirect back to the profile page
+	 * with a success notification or the errors that occured.
+	 *
+	 * @return Return a redirect to the profile page
+	 */
+	public function updateProfile() {
+		$v = Player::validate(Input::all(), 'profileUpdate');
+
+		if ($v->passes()) {
+			$player = Player::find(Input::get('id'));
+			$player->first_name = Input::get('first_name');
+			$player->last_name = Input::get('last_name');
+			$player->about_me = Input::get('about_me', NULL);
+			$player->facebook_URL = Input::get('facebook_URL', NULL);
+			$player->position = Input::get('position', NULL);
+			$player->nationality = Input::get('nationality', NULL);
+			$player->number = Input::get('number', NULL);
+			$player->save();
+
+			return Redirect::action('PlayerController@showProfilePage')->with('success', 'Your profile has been updated.');
+		} else {
+			Input::flash();
+			return Redirect::action('PlayerController@showProfilePage')->withErrors($v->messages());
+		}
+	}
+
+	/**
+	 * Changes current users password if it passes the validation checks. Returns redirect back to the profile page
+	 * with a success notification or the errors that occured.
+	 *
+	 * @return Return a redirect to the profile page
+	 */
+	public function changePassword() {
+		$v = Player::validate(Input::all(), 'changePassword');
+
+		if ($v->passes()) {
+			$userdata = array(
+				'email' 	=> Auth::user()->email,
+				'password' 	=> Input::get('old_password')
+			);
+
+			if(Auth::validate($userdata)) {
+				$new_password = Input::get('new_password');
+				$confirm_password = Input::get('confirm_password');
+
+				if (strcmp($new_password, $confirm_password) == 0) {
+					$player = Player::find(Input::get('id'));
+					$player->password = Hash::make($new_password);
+					$player->save();
+
+					return Redirect::action('PlayerController@showProfilePage')->with('success', 'Your password has been changed.');
+				} else {
+					return Redirect::action('PlayerController@showProfilePage')->withErrors(array('The passwords do not match.'));
+				}
+			} else {
+				return Redirect::action('PlayerController@showProfilePage')->withErrors(array('Current password is incorrect.'));
+			}
+		} else {
+			Input::flash();
+			return Redirect::action('PlayerController@showProfilePage')->withErrors($v->messages());
+		}
+	}
+
+
 
 	/**
 	 * Returns an accounts page to be displayed. The page displayed depends on the

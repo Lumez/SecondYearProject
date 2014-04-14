@@ -62,47 +62,67 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function validate($input, $ruleSet) {
 
-        $rulesAdminNew = array(
-                'first_name'   => 'Required|Max:50|AlphaNum',
-                'last_name'    => 'Required|Max:50|AlphaNum',
-                'email'        => 'Required|Max:255|Email',
-                'password'     => 'Required|Min:3',
-                'is_admin'     => 'Integer|Size:1',
-                'about_me'     => 'Max:255',
-                'facebook_URL' => 'Max:255',
-                'position'     => 'Max:255',
-                'nationality'  => 'Max:255',
-                'number'       => 'Integer|Max:2'
-        );
+		$rulesAdminNew = array(
+				'first_name'   => 'Required|Max:50|AlphaNum',
+				'last_name'    => 'Required|Max:50|AlphaNum',
+				'email'        => 'Required|Max:255|Email',
+				'password'     => 'Required|Min:3',
+				'is_admin'     => 'Integer|Size:1',
+				'about_me'     => 'Max:255',
+				'facebook_URL' => 'Max:255',
+				'position'     => 'Max:255',
+				'nationality'  => 'Max:255',
+				'number'       => 'Integer|Max:2'
+		);
 
-        $rulesAdminUpdate = array(
-                'first_name'   => 'Required|Max:50|AlphaNum',
-                'last_name'    => 'Required|Max:50|AlphaNum',
-                'is_admin'     => 'Integer|Size:1',
-                'about_me'     => 'Max:255',
-                'facebook_URL' => 'Max:255',
-                'position'     => 'Max:255',
-                'nationality'  => 'Max:255',
-                'number'       => 'Integer|Max:99'
-        );
+		$rulesAdminUpdate = array(
+				'first_name'   => 'Required|Max:50|AlphaNum',
+				'last_name'    => 'Required|Max:50|AlphaNum',
+				'is_admin'     => 'Integer|Size:1',
+				'about_me'     => 'Max:255',
+				'facebook_URL' => 'Max:255',
+				'position'     => 'Max:255',
+				'nationality'  => 'Max:255',
+				'number'       => 'Integer|Max:99'
+		);
 
-        switch ($ruleSet) {
-        	case 'adminNew':
-	        	return Validator::make($input, $rulesAdminNew);
-	        	break;
+		$rulesProfileUpdate = array(
+				'first_name'   => 'Required|Max:50|AlphaNum',
+				'last_name'    => 'Required|Max:50|AlphaNum',
+				'about_me'     => 'Max:255',
+				'facebook_URL' => 'Max:255',
+				'position'     => 'Max:255',
+				'nationality'  => 'Max:255',
+				'number'       => 'Integer|Max:99'
+		);
 
-	        case 'adminUpdate':
-	        	return Validator::make($input, $rulesAdminUpdate);
-	        	break;
+		$rulesChangePassword = array(
+				'old_password'     => 'Required|Min:3',
+				'new_password' => 'Required|Min:3',
+				'confirm_password' => 'Required|Min:3',
+		);
 
-	        case 'playerUpdate':
-	        	return Validator::make($input, $rulesAdminUpdate);
-	        	break;
+		switch ($ruleSet) {
+			case 'adminNew':
+				return Validator::make($input, $rulesAdminNew);
+				break;
 
-	        default:
-	        	return Validator::make($input, $rulesAdminNew);
-	        	break;
-	    }
+			case 'adminUpdate':
+				return Validator::make($input, $rulesAdminUpdate);
+				break;
+
+			case 'profileUpdate':
+				return Validator::make($input, $rulesProfileUpdate);
+				break;
+
+			case 'changePassword':
+				return Validator::make($input, $rulesChangePassword);
+				break;
+
+			default:
+				return Validator::make($input, $rulesAdminNew);
+				break;
+		}
 	}
 
 }

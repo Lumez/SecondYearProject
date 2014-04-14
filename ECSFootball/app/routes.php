@@ -44,6 +44,8 @@ Route::get('/league', 'LeagueController@showLeaguePage');
 
 /* Profile */
 Route::get('/profile', array('before' => 'auth', 'uses' => 'PlayerController@showProfilePage'));
+Route::post('/profile/update', array('before' => 'auth', 'uses' => 'PlayerController@updateProfile'));
+Route::post('/profile/password', array('before' => 'auth', 'uses' => 'PlayerController@changePassword'));
 
 /* Accounts */
 Route::get('/accounts/{playerId?}', array('before' => 'auth|admin', 'uses' => 'PlayerController@showAccountsPage'));

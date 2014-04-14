@@ -20,6 +20,7 @@
 				<button class="btn btn-success" data-toggle="modal" data-target="#articleModal">&plus; Add Article</button>
 			</div>
 			
+			<hr />
 			<!-- Modal -->
 			<div class="modal fade" id="articleModal" tabindex="-1" role="dialog" aria-labelledby="newArticleModal" aria-hidden="true">
 				<div class="modal-dialog">
@@ -75,18 +76,17 @@
 			
 			
 			@foreach ($articles as $article)
-			<hr />
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="article">
 						<div class="row">
 							<div class="col-sm-6">
-								<span class="articleTitle">{{ $article->title }}</span>
+								<a href="{{ action('HomeController@showArticlePage', $article->article_id) }}"><span class="articleTitle">{{ $article->title }}</span></a>
 							</div>
 							<div class="col-sm-3">
 							</div>
 							<div class="col-sm-3 editDelete">
-									<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+									<a href="{{ action('HomeController@showArticleUpdatePage',  $article->article_id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
 									
 									{{ Form::open(array('action' => 'HomeController@deleteArticle', 'style' => 'display: inline;')) }}
 										{{ Form::hidden('article_id', $article->article_id) }}
@@ -99,29 +99,18 @@
 						</div>
 						<!--{{ $description = $article->description; }}
 						{{ $description = substr($description,0,555).'...'; }}-->
-						<a href="{{ action('HomeController@showArticlesPage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
-						<p class="newsDesc">{{ $description }} <a href="{{ action('HomeController@showArticlesPage',  $article->article_id) }}"> Read More</a></p>
+						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
+						<p class="newsDesc">{{ $description }} <a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"> Read More</a></p>
 						<p><span class="glyphicon glyphicon-calendar"></span> {{ date('d F Y',strtotime($article->display_date)); }}</p>
 					</div>
 				</div>
 			</div>
+			<hr />
 			@endforeach
-			<br/><br/>
 			
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-				var disqus_shortname = 'bdixoncouk'; // required: replace example with your forum shortname
-
-				/* * * DON'T EDIT BELOW THIS LINE * * */
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			<div class="center">
+				{{ $articles->links() }}
+			</div>	
 
 		</div>
 		<div class="col-md-4 center vert-divider">

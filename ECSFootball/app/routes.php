@@ -21,10 +21,10 @@ Route::filter('admin', function()
 
 /* News/Home */
 Route::get('/', 'HomeController@showHomePage');
-Route::get('/articles/{articleId?}', 'HomeController@showArticlesPage');
+Route::get('/articles/{articleId?}', 'HomeController@showArticlePage');
 Route::post('/deleteArticle', array('before' => 'auth|admin', 'uses' => 'HomeController@deleteArticle'));
 Route::post('/updateArticle', array('before' => 'auth|admin', 'uses' => 'HomeController@updateArticle'));
-Route::get('/article/{articleId?}', 'HomeController@showArticlePage');
+Route::get('/article/edit/{articleId?}', 'HomeController@showArticleUpdatePage');
 Route::post('/addArticle', array('before' => 'auth|admin', 'uses' => 'HomeController@addArticle'));
 
 

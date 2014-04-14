@@ -14,21 +14,16 @@ class HomeController extends BaseController {
 	 */
 	public function showHomePage() {
 		$latestArticles = Article::orderBy('display_date', 'desc')
-						->take(5)
-						->get();
-
-
-		//featuredFilm is called film so that the homepage can use the filmDetails partial
-		//return $this->buildPage('home', array('recentFilms' => $recentFilms, 'film' => $featuredFilm));
+						->paginate(5);
                 
-                if ( Auth::check() && Auth::user()->is_admin ){
+        if ( Auth::check() && Auth::user()->is_admin ){
 			return View::make('homeAdmin', array('articles' => $latestArticles));
-		}else {
+		} else {
 			return View::make('home', array('articles' => $latestArticles));
 		}
 	}
 
-        public function showArticlesPage($articleID = null) {
+        public function showArticlePage($articleID = null) {
 		if (!$articleID == null) {
 			return $this->showArticle($articleID);
 		} else {
@@ -51,7 +46,7 @@ class HomeController extends BaseController {
 		return Redirect::action('HomeController@showHomePage')->with('success', 'The article has been deleted.');
 	}
         
-        public function showArticlePage($articleID = null) {
+    public function showArticleUpdatePage($articleID = null) {
 		if (!$articleID == null) {
 			return $this->showArticleUpdate($articleID);
 		} else {

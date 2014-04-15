@@ -11,6 +11,11 @@
 @section('body')
 
 <div class="padded-content">
+<ol class="breadcrumb">
+  <li><a href="{{ action('HomeController@showHomePage') }}">Home</a></li>
+  <li><a href="{{ action('HomeController@showHomePage') }}">Latest News</a></li>
+  <li class="active">'{{ $article->title }}' Article</li>
+</ol>
 	<div class="row">
 		<div class="col-md-8">
 			<div class="row">

@@ -1,6 +1,6 @@
 <br/>
 <div class="sidebarItem"> 
-	<h4><b>Latest News</b></h4>
+	<h4><strong>Latest News</strong></h4>
 	<!--DON'T DELETE THIS COMMENTED AREA, IT IS REQUIRED FOR THE FIXTURES RESULTS
 	<!--{{ $latestNews = Article::orderBy('display_date', 'desc')->take(2)->get();}}-->
 	

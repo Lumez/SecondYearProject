@@ -2,7 +2,7 @@
 
 <br/>
 <div class="sidebarItem"> 
-	<h4><b>Weather forecast</b></h4>
+	<h4><strong>Weather forecast</strong></h4>
 	
 	<div style = "text-align:left; padding-left:15px;">
 	

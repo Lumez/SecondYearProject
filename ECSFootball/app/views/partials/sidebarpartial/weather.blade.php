@@ -18,7 +18,7 @@
 
 				<tr>	
 					<td >  
-						&nbsp;<b>{{ $myDate }}</b>
+						&nbsp;<strong>{{ $myDate }}</strong>
 					</td>
 
 					<td>

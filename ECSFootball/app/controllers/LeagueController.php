@@ -18,6 +18,10 @@ class LeagueController extends BaseController {
 		$dom = new DOMDocument();
 		@$dom->loadHTMLfile('http://soton.imsports.co.uk/league/leaguetable_ajax.php');
 
+
+		/**
+		 * Remove the hyperlinks
+		 */
 		//Get all the hyperlinks to be removed
 		$links = $dom->getElementsByTagName('a');
 
@@ -31,6 +35,10 @@ class LeagueController extends BaseController {
 			$i--;
 		}
 
+
+		/**
+		 * Change the h2 headings to h3's
+		 */
 		//Get all the headings to be replaced
 		$headings = $dom->getElementsByTagName('h2');
 
@@ -43,6 +51,16 @@ class LeagueController extends BaseController {
 			$heading->parentNode->replaceChild($text, $heading); 
 			$i--;
 		}
+
+
+		/**
+		 * Change table styling
+		 */
+		$tables = $dom->getElementsByTagName('table');
+		foreach ($tables as $table) {
+			$table->setAttribute('class', 'table table-condensed');
+		}
+
 
 		//Save an updated copy of the page
 		$leagueTable = $dom->saveHTML($dom);

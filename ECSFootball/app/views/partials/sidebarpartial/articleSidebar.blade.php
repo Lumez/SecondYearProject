@@ -6,7 +6,7 @@
 	
 	
 			@foreach ($latestNews as $article)
-				<h5><b>{{ $article->title }}</b></h5>
+				<h5><strong>{{ $article->title }}</strong></h5>
 				<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="90px;"></a>
 				
 				<!--Is used to cut the description to certain amount of characters, not to exceed the div-->

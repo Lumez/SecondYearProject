@@ -1,8 +1,8 @@
 <br/>
 <div class="sidebarItem"> 
 	<h4><b>Latest Fixtures and Results</b></h4>
-	<!--DON'T DELETE THIS COMMENTED AREA, IT IS REQUIRED FOR THE FIXTURES RESULTS
-	<!--{{ $latestFixtures = Fixture::orderBy('date', 'desc')->take(5)->get();}}-->
+	<!-- DON'T DELETE THIS COMMENTED AREA, IT IS REQUIRED FOR THE FIXTURES RESULTS
+	<!--{{ $latestFixtures = Fixture::orderBy('date', 'desc')->take(5)->get();}} -->
 	
 	<div class="center">
 		<table class="sidebarFixture">

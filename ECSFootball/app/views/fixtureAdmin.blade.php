@@ -5,6 +5,11 @@
 @section('head')
 
 {{ HTML::style('css/fixtures.style.css') }}
+<script>
+	$(function() {
+		$('#dp1').datepicker();
+	});
+</script>
 
 @stop
 
@@ -126,7 +131,7 @@
 							<div class="form-group">
 			       				{{ Form::label('date', 'Date of Match:', array('class' => 'col-sm-4 control-label')) }}
 								<div class="col-sm-8">
-									{{ Form::text('date', '', array('placeholder' => 'yyyy-mm-dd', 'class' => 'form-control')) }}
+									{{ Form::text('date', '', array('placeholder' => 'yyyy-mm-dd', 'class' => 'form-control', 'data-date-format' => 'yyyy-mm-dd', 'id' => 'dp1')) }}
 								</div>
 							</div>
 							<div class="form-group">

@@ -36,7 +36,7 @@
 				<li class="dropdown" id="menu1">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
 						Login
-						<b class="caret"></b>
+						<strong class="caret"></strong>
 					</a>
 					<div class="dropdown-menu">
 						{{ Form::open(array('action' => 'LoginController@doLogin', 'class' => 'nav-login')) }}

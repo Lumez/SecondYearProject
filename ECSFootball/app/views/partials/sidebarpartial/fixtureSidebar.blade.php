@@ -1,6 +1,6 @@
 <br/>
 <div class="sidebarItem"> 
-	<h4><b>Latest Fixtures and Results</b></h4>
+	<h4><strong>Latest Fixtures and Results</strong></h4>
 	<!-- DON'T DELETE THIS COMMENTED AREA, IT IS REQUIRED FOR THE FIXTURES RESULTS
 	<!-- {{ $latestFixtures = Fixture::orderBy('date', 'desc')->take(5)->get();}} -->
 	

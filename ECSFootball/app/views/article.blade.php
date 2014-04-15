@@ -13,11 +13,16 @@
 <div class="padded-content">
 	<div class="row">
 		<div class="col-md-8">
-			<h3 class="center">{{ $article->title }}</h3><br/>
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="article">
+						<br/>
+						<h3>{{ $article->title }}</h3>
+
+						@if ($article->picture_URL)
 						<img class="newsImage" src="{{ $article->picture_URL }}" width="200px;">
+						@endif
+
 						<p class="newsDesc">{{ $article->description }} </p>
 						<p><span class="glyphicon glyphicon-calendar"></span> {{ date('d F Y',strtotime($article->display_date)); }}</p>
 					</div>

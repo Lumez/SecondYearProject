@@ -27,8 +27,6 @@
 						{{ $day->weatherDesc[0]->value }} &nbsp;
 					</td>
 
-					</p>
-
 				</tr>
 			@endforeach
 

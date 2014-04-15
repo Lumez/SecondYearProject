@@ -25,7 +25,7 @@
 						<h3>{{ $article->title }}</h3>
 
 						@if ($article->picture_URL)
-						<img class="newsImage" src="{{ $article->picture_URL }}" width="200px;">
+						<img class="newsImage" alt="{{ $article->title }} image" src="{{ $article->picture_URL }}" width="200px;">
 						@endif
 
 						<p class="newsDesc">{{ $article->description }} </p>

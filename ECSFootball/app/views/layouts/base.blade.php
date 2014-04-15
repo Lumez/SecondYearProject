@@ -26,7 +26,7 @@
                         <a id="accessibility" class="btn btn-danger" href="javascript:(function(){d=document;lf=d.createElement('script');lf.type='text/javascript';lf.id='ToolbarStarter';lf.text='var%20StudyBarNoSandbox=true';d.getElementsByTagName('head')[0].appendChild(lf);jf=d.createElement('script');jf.src='https://core.atbar.org/atbar/en/latest/atbar.min.js';jf.type='text/javascript';jf.id='ToolBar';d.getElementsByTagName('head')[0].appendChild(jf);})()" target="" title="" id="atbar">Accessibility Tools</a>
                 </div>
 		<div class="header-logo">
-			<img src="/img/ecss.png" style="width:150px;"/>
+			<a href="{{ action('HomeController@showHomePage') }}"><img src="/img/ecss.png" style="width:150px;"/></a>
 		</div>
 		<div class="white-background">
 			@include('layouts.nav')

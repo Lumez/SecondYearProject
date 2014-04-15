@@ -23,7 +23,7 @@
 
 					<td>
 						<!-- Weather Icon Image -->
-						~ <img src= "{{ $day->weatherIconUrl[0]->value }}" alt= "{{ $day->weatherDesc[0]->value }}" id="weathericon"/>
+						~ <img src= "{{ $day->weatherIconUrl[0]->value }}" alt= "{{ $day->weatherDesc[0]->value }}" class="weathericon"/>
 						{{ $day->weatherDesc[0]->value }} &nbsp;
 					</td>
 

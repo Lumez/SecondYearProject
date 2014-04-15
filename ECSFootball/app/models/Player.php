@@ -68,32 +68,30 @@ class Player extends Eloquent implements UserInterface, RemindableInterface {
 				'email'        => 'Required|Max:255|Email',
 				'password'     => 'Required|Min:3',
 				'is_admin'     => 'Integer|Size:1',
-				'about_me'     => 'Max:255',
 				'facebook_URL' => 'Max:255',
-				'position'     => 'Max:255',
-				'nationality'  => 'Max:255',
-				'number'       => 'Integer|Max:2'
 		);
 
 		$rulesAdminUpdate = array(
 				'first_name'   => 'Required|Max:50|AlphaNum',
 				'last_name'    => 'Required|Max:50|AlphaNum',
 				'is_admin'     => 'Integer|Size:1',
-				'about_me'     => 'Max:255',
+				'about_me'     => 'Max:500',
 				'facebook_URL' => 'Max:255',
-				'position'     => 'Max:255',
-				'nationality'  => 'Max:255',
-				'number'       => 'Integer|Max:99'
+				'position'     => 'Max:100',
+				'nationality'  => 'Max:100',
+				'number'       => 'Integer|Max:99',
+				'nickname'     => 'Max:50'
 		);
 
 		$rulesProfileUpdate = array(
 				'first_name'   => 'Required|Max:50|AlphaNum',
 				'last_name'    => 'Required|Max:50|AlphaNum',
-				'about_me'     => 'Max:255',
+				'about_me'     => 'Max:500',
 				'facebook_URL' => 'Max:255',
-				'position'     => 'Max:255',
-				'nationality'  => 'Max:255',
-				'number'       => 'Integer|Max:99'
+				'position'     => 'Max:100',
+				'nationality'  => 'Max:100',
+				'number'       => 'Integer|Max:99',
+				'nickname'     => 'Max:50'
 		);
 
 		$rulesChangePassword = array(

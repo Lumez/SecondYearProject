@@ -37,6 +37,7 @@ class PlayerController extends BaseController {
 			$player->position = Input::get('position', NULL);
 			$player->nationality = Input::get('nationality', NULL);
 			$player->number = Input::get('number', NULL);
+			$player->nickname = Input::get('nickname', NULL);
 			$player->save();
 
 			return Redirect::action('PlayerController@showProfilePage')->with('success', 'Your profile has been updated.');
@@ -170,6 +171,7 @@ class PlayerController extends BaseController {
 			$player->position = Input::get('position', NULL);
 			$player->nationality = Input::get('nationality', NULL);
 			$player->number = Input::get('number', NULL);
+			$player->nickname = Input::get('nickname', NULL);
 			$player->save();
 
 			return Redirect::action('PlayerController@showAccountsPage')->with('success', 'The player has been updated.');

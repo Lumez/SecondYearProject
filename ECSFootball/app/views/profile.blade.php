@@ -39,6 +39,12 @@
 					</div>
 				</div>
 				<div class="form-group">
+					{{ Form::label('nickname', 'Nickname', array('class' => 'col-sm-4 control-label')) }}
+					<div class="col-sm-8">
+						{{ Form::text('nickname', $player->nickname, array('class' => 'form-control')) }}
+					</div>
+				</div>
+				<div class="form-group">
 					{{ Form::label('facebook_URL', 'Facebook Username', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-8">
 						{{ Form::text('facebook_URL', $player->facebook_URL, array('class' => 'form-control')) }}

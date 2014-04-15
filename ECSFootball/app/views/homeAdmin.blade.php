@@ -106,7 +106,7 @@
 							</div>
 						</div>
 						@if ($article->picture_URL)
-						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
+						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" alt="Image of {{ $article->title }}" src="{{ $article->picture_URL }}" width="200px;"></a>
 						@endif
 						
 						<!--{{ $description = $article->description; }}

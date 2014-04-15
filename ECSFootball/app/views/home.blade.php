@@ -25,7 +25,11 @@
 					<div class="article">
 					@endif
 						<a href="{{ action('HomeController@showArticlePage', $article->article_id) }}"><h3>{{ $article->title }}</h3></a>
-						<img class="newsImage" src="{{ $article->picture_URL }}" width="200px;">
+						
+						@if ($article->picture_URL)
+						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
+						@endif
+						
 						<!--{{ $description = $article->description; }}
 						{{ $description = substr($description,0,555).'...'; }}-->
 						<p class="newsDesc">{{ $description }} <a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"> Read More</a></p>

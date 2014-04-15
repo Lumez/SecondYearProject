@@ -105,9 +105,12 @@
 						
 							</div>
 						</div>
+						@if ($article->picture_URL)
+						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
+						@endif
+						
 						<!--{{ $description = $article->description; }}
 						{{ $description = substr($description,0,555).'...'; }}-->
-						<a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"><img class="newsImage" src="{{ $article->picture_URL }}" width="200px;"></a>
 						<p class="newsDesc">{{ $description }} <a href="{{ action('HomeController@showArticlePage',  $article->article_id) }}"> Read More</a></p>
 						<p>
 							<span class="glyphicon glyphicon-calendar"></span> {{ date('d F Y',strtotime($article->display_date)); }}

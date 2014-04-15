@@ -54,5 +54,5 @@
 			      });
 			</script>
 		</div>
-
+	</div>
 </div>

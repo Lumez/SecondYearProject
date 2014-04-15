@@ -30,7 +30,7 @@ body {
 	margin-top: -50px;
 }
 
-#accessibility{
+.accessibility{
 	position: relative;
 	top: 0px;
         color: white;
@@ -49,7 +49,7 @@ body {
 	background-image: linear-gradient(rgb(207,11,11), rgb(167,6,6));
 }
 
-#accessibility:hover{
+.accessibility:hover{
 	background-image: -moz-linear-gradient(rgb(167,6,6), rgb(207,11,11));     
 	background-image: -webkit-linear-gradient(rgb(167,6,6), rgb(207,11,11)); 
 	background-image: -o-linear-gradient(rgb(167,6,6), rgb(207,11,11));    

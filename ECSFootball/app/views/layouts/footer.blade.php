@@ -5,4 +5,4 @@
 	<p>Copyright &copy; <?php echo(date('Y')); ?> ECSS</p>
 	<p>Developed by Damn Nizze Design</p>
 	<p><script type="text/javascript"> document.write("Page was last modified on: " + document.lastModified);</script></p>
-<div>
+</div>

@@ -40,9 +40,39 @@
 					</a>
 					<div class="dropdown-menu">
 						{{ Form::open(array('action' => 'LoginController@doLogin', 'class' => 'nav-login')) }}
-							{{ Form::email('email', '', array('placeholder' => 'Email', 'class' => 'form-control')) }}
-							{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
-							{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
+							<div class="col-md-12">
+
+								<div class="col-md-4">
+									{{ Form::label('email', 'eMail') }}
+								</div>
+
+								<div class="col-md-8">
+									{{ Form::email('email', '', array('placeholder' => 'Email', 'class' => 'form-control')) }}
+								</div>
+							</div>
+
+							<div class="col-md-12">
+
+								<div class="col-md-4">
+									{{ Form::label('password', 'Password') }}
+								</div>
+
+								<div class="col-md-8">
+									{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
+								</div>
+							</div>
+
+							<div class="col-md-12">
+
+								<div class="col-md-4">
+								
+								</div>
+
+								<div class="col-md-8">
+									{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
+								</div>
+							</div>
+	
 						{{ Form::close() }}
 					</div>
 				</li>

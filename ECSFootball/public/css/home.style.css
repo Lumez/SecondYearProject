@@ -37,3 +37,7 @@
 .editDelete {
     padding-top: 18px;
 }
+
+.dropdown-menu{
+    width:300px;
+}

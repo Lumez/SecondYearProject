@@ -16,19 +16,25 @@
 			<h1>The Team</h1>
 			<p><b>Kit Colours:</b> Navy & Yellow</p>
 			<p>Customers experience a service that is second to none, with tracked next day delivery and no late fees, it's no wonder that we were voted top DVD rental provider in the UK for the past 10 years.</p>
-			<strong>Red Carpet Films - DVD heaven really is a place on Earth</strong>
-			
+			<h2 align="left">The Players</h2>
+			<p>Here is a quick introduction to the players in the team:</p>
 			@foreach ($players as $player)
-			<hr />
 			<div class="row">
-			<img class="img-thumbnail pull-left"  src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture?type=large'/>
-				<h3>{{ $player->first_name }} {{ $player->last_name }}</h3>
-				<br>
-				<p><b>Number:</b> {{ $player->number }}</p>
-				<p><b>Position:</b> {{ $player->position }}</p>
-				<p><b>Nationality:</b> {{ $player->nationality }}</p>
-				<br><br>
-				<p class="pull-left"><b>About Me:</b> {{ $player->about_me }}</p>
+			<hr />
+			<h2 id="playername">{{ $player->first_name }} {{ $player->last_name }}</h2>
+			<div class="pull-left">
+			<a href="https://www.facebook.com/{{ $player->facebook_URL }}"><img class="img-thumbnail playerimage"  src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture?type=large'/></a>
+			</div>
+			<div id="playerdetails">
+			<br />
+			<table id="playertable">
+				<tr><td><h4>Number:</h4></td> <td class="dbinfo">{{ $player->number }}</td></tr>
+				<tr><td><h4>Position:</h4></td> <td class="dbinfo">{{ $player->position }}</td></tr>
+				<tr><td><h4>Nationality:</h4></td> <td class="dbinfo">{{ $player->nationality }}</td></tr>
+				<tr><td><h4>About Me:</h4></td> <td class="dbinfo">{{ $player->about_me }}</td></tr>
+			
+			</table>
+			</div>
 			</div>
 			@endforeach
 		</div>

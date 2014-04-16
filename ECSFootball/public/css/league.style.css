@@ -1,0 +1,24 @@
+.copyright{
+    text-align: center;
+    background-color: #fee2e3;
+    color: #000000;
+    background-image: -moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+    background-image: -webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+    background-image: -o-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+    background-image: -ms-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+    background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+    background-image: linear-gradient(#ffffff, #fee2e3);
+    clear: both;
+    border-radius: 7px;
+    -moz-box-shadow: 3px 3px 3px 3px #737373;
+    -webkit-box-shadow: 3px 3px 3px 3px #737373;
+    box-shadow: 3px 3px 3px 3px #4a4a4a;
+    background-color: #cdedc9;   
+}
+
+.leagueTable{
+    border: 1px solid rgba(0,0,0, 0.2);
+    border-radius: 7px;
+    background-color: rgba(0,0,0, 0.08);
+    padding: 0px 20px;
+}

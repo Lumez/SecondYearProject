@@ -15,8 +15,8 @@
 		<div class="col-md-8">
 			<h1 class="center">League Table</h1>
 
-			{{ $leagueTable }}
-
+			{{ $leagueTable }}<br/>
+			<p class="copyright">All information for the league table is retrieved from <a href="http://soton.imsports.co.uk/" target="_blank">http://soton.imsports.co.uk/</a> website using Ajax.</p>
 			<hr />
 
 			<div id="disqus_thread"></div>

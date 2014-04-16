@@ -58,7 +58,7 @@ class LeagueController extends BaseController {
 		 */
 		$tables = $dom->getElementsByTagName('table');
 		foreach ($tables as $table) {
-			$table->setAttribute('class', 'table table-condensed');
+			$table->setAttribute('class', 'table table-condensed leagueTable');
 		}
 
 

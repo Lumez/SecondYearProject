@@ -77,7 +77,7 @@
 				</div>	
 				<div class="right">								
 					<a href="{{ action('PlayerController@showAccountsPage') }}" class="btn btn-default">Cancel</a>
-					{{ Form::submit('Save Changes', array('class' => 'btn btn-success')) }}
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> &nbsp;Save Changes</button>
 					{{ Form::close() }}
 				</div>
 			</div>

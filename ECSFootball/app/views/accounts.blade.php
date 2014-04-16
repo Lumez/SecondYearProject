@@ -13,22 +13,26 @@
 		<div class="col-md-8 center">
 			<h1>Accounts</h1>
 
-			<table class="table table-hover table-condensed">
+			<table class="table table-hover table-condensed accountsList">
 				<tr>
 					<th>ID</th>
 					<th></th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
-					<th></th>
+					<th>Edit</th>
+					<th>Delete</th>
 				</tr>
 				@foreach ($players as $player)
-				<tr onclick="location.href='{{ action('PlayerController@showAccountsPage', $player->id) }}'" style="cursor: pointer;">					
+				<tr>					
 					<td>{{ $player->id }}</td>
 					<td><img src='https://graph.facebook.com/{{ $player->facebook_URL }}/picture'/></td>
 					<td>{{ $player->first_name }}</td>
 					<td>{{ $player->last_name }}</td>
 					<td>{{ $player->email }}</td>
+					<td>
+									<a href="{{ action('PlayerController@showAccountsPage',  $player->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+								</td>
 					<td>
 						{{ Form::open(array('action' => 'PlayerController@deletePlayer')) }}
 							{{ Form::hidden('id', $player->id) }}

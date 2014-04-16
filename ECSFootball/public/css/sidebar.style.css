@@ -5,6 +5,10 @@
     padding: 5px;
 }
 
+.sidebarImg{
+    width: 90px;
+}
+
 .sidebarFixture{
     text-align: center;
     margin: auto;

@@ -5,9 +5,9 @@
 	{{ HTML::style('lib/datepicker/css/datepicker.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::style('css/contact.style.css') }}
-	{{ HTML::style('css/sidebar.style.css') }}
 	{{ HTML::style('css/home.style.css') }}
-
+	{{ HTML::style('css/sidebar.style.css') }}
+	
 	{{ HTML::script('https://code.jquery.com/jquery.js') }}
 	{{ HTML::script('lib/bootstrap/js/bootstrap.min.js') }}
 	{{ HTML::script('lib/datepicker/js/bootstrap-datepicker.js') }}
@@ -27,7 +27,7 @@
         </div>
 
 		<div class="header-logo">
-			<a href="{{ action('HomeController@showHomePage') }}"><img src="/img/ecss.png" alt="ECS-Football Society's Logo" style="width:150px;"/></a>
+			<a href="{{ action('HomeController@showHomePage') }}"><img src="/img/ecss.png" <?php if (isset($fixture)){ echo "class='dude'";}?>alt="ECS-Football Society's Logo" style="width:150px;"/></a>
 		</div>
 		
 		<div class="white-background">

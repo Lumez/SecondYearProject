@@ -183,9 +183,10 @@ body {
 
 .navbar {
 	margin-bottom: 0;
-	width: 940px;
+	max-width: 940px;
         margin-bottom: 0px;
 	margin-left: -20px;
+	margin-right: -20px;
         padding: 0px;
         color: #cccccc;
 	-moz-box-shadow: 0 0 10px black;

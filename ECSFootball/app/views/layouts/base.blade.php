@@ -27,7 +27,7 @@
         </div>
 
 		<div class="header-logo">
-			<a href="{{ action('HomeController@showHomePage') }}"><img src="/img/ecss.png" <?php if (isset($fixture)){ echo "class='dude'";}?>alt="ECS-Football Society's Logo" style="width:150px;"/></a>
+			<a href="{{ action('HomeController@showHomePage') }}"><img src="/img/ecss.png" <?php if (isset($fixture)){ echo "class='fix'";}?>alt="ECS-Football Society's Logo" style="width:150px;"/></a>
 		</div>
 		
 		<div class="white-background">

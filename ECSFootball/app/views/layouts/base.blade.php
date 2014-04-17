@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8">
 	
 	{{ HTML::style('lib/bootstrap/css/bootstrap.css') }}
 	{{ HTML::style('lib/datepicker/css/datepicker.css') }}
@@ -16,7 +17,7 @@
 	{{ HTML::script('js/ecss.js') }}
 
 	@yield('head')
-	<meta charset="UTF-8">
+	
 	<link rel="shortcut icon" href="/img/favicon.ico"/>
 	
 	<title>@yield('title') | ECSS Football</title>

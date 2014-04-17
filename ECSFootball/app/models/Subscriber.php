@@ -31,7 +31,7 @@ class Subscriber extends Eloquent {
 		/* |exists:subscriber,email */
 
         $rules = array(
-                'email' => 'Required|email|unique:subscriber,email',
+                'eMail' => 'Required|email|unique:subscriber,email',
                 
         );
 

@@ -21,7 +21,7 @@ class SubscribeController extends BaseController {
 		if($validator->passes()) {
 
 			$subscriber = new Subscriber;
-			$subscriber->email = Input::get('email');
+			$subscriber->email = Input::get('subscriberEmail');
 			$subscriber->save();
 
 			Mail::send('emails.subscribed', array(), function($message) use ($subscriber)

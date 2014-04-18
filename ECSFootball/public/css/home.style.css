@@ -32,6 +32,7 @@
     border-radius: 7px;
     background-color: rgba(0,0,0, 0.08);
     padding: 0px 20px;
+    min-height: 200px;
 }
 
 .editDelete {

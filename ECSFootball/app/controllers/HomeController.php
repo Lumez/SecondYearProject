@@ -24,7 +24,7 @@ class HomeController extends BaseController {
 		}
 	}
 
-        public function showArticlePage($articleID = null) {
+    public function showArticlePage($articleID = null) {
 		if (!$articleID == null) {
 			return $this->showArticle($articleID);
 		} else {
@@ -67,7 +67,7 @@ class HomeController extends BaseController {
 	}
         
         
-        public function updateArticle() {
+    public function updateArticle() {
 		$validator = Article::validate(Input::all());
 
 		if ($validator->passes()) {
@@ -87,7 +87,7 @@ class HomeController extends BaseController {
 	}
         
         
-        public function addArticle(){
+    public function addArticle(){
 		$validator = Article::validate(Input::all());
 
 		if($validator->passes()){
@@ -126,5 +126,9 @@ class HomeController extends BaseController {
 			Input::flash();
 			return Redirect::action('HomeController@showHomePage')->withErrors($validator->messages());
 		}
+	}
+
+	public function showPrivacyPolicyPage() {
+		return View::make('privacy');
 	}
 }

@@ -64,7 +64,11 @@ Route::get('/unsubscribe/{shortId?}', 'SubscribeController@removeSubscriber');
 
 /* Contact Us */
 Route::get('/contact', 'ContactController@showContactPage');
-Route::post('/contact','ContactController@getContactUsForm');
+Route::post('/contact', 'ContactController@getContactUsForm');
+
+/* Privacy Policy */
+Route::get('/privacy', 'HomeController@showPrivacyPolicyPage');
+
 
 
 

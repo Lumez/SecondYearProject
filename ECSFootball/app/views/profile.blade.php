@@ -74,7 +74,8 @@
 						{{ Form::textarea('about_me', $player->about_me, array('class' => 'form-control')) }}
 					</div>
 				</div>
-				<div class="right">								
+				<div class="right">	
+					<p>By saving your changes you agree to our <a href="{{ action('HomeController@showPrivacyPolicyPage') }}">Privacy Policy</a></p>							
 					{{ Form::submit('Save Changes', array('class' => 'btn btn-success')) }}
 					{{ Form::close() }}
 				</div>

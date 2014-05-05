@@ -15,7 +15,6 @@
 		<div class="col-md-8 center">
 			<h1>The Team</h1>
 			<p><b>Kit Colours:</b> Navy &amp; Yellow</p>
-			<p>Customers experience a service that is second to none, with tracked next day delivery and no late fees, it's no wonder that we were voted top DVD rental provider in the UK for the past 10 years.</p>
 			<h2 align="left">The Players</h2>
 			<p>Here is a quick introduction to the players in the team:</p>
 			@foreach ($players as $player)

@@ -44,7 +44,7 @@ class SubscribeController extends BaseController {
 		if ($shortId != null) {
 			$hashids = new Hashids\Hashids('nizze');
 			$id = $hashids->decrypt($shortId);
-			if (is_integer($id[0]) && Subscriber::where('id', '=', $id[0])->exists()) {
+			if (is_array($id) && is_integer($id[0]) && Subscriber::where('id', '=', $id[0])->exists()) {
 				$subscriber = Subscriber::destroy($id[0]);
 				return Redirect::action('HomeController@showHomePage')->with('success', 'You have been removed from the mailing list.');
 			} else {
